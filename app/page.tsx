@@ -39,7 +39,7 @@ export default function Home() {
                   Play Now
                 </Link>
                 <Link
-                  href="#"
+                  href="/tutorial"
                   className="btn btn-secondary max-w-lg w-full font-bold text-lg"
                 >
                   How to Play
