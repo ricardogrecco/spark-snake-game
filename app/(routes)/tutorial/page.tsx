@@ -8,15 +8,18 @@ import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 export default function TutorialPage() {
   return (
     <main className="bg-[#430E7D] min-h-screen w-full flex flex-col items-center p-10">
-      <Link href="/" className="btn btn-ghost drawer-button self-start -m-5">
-        <MdOutlineKeyboardArrowLeft className="w-8 h-8" />
-      </Link>
-      <label
-        htmlFor="side-drawer"
-        className="btn btn-ghost drawer-button self-end -m-5"
-      >
-        <GiHamburgerMenu className="w-6 h-6" />
-      </label>
+      <div className="flex flex-row justify-between items-center w-full">
+        <Link href="/" className="btn btn-ghost drawer-button -m-5">
+          <MdOutlineKeyboardArrowLeft className="w-8 h-8" />
+        </Link>
+        <label
+          htmlFor="side-drawer"
+          className="btn btn-ghost drawer-button -m-5"
+        >
+          <GiHamburgerMenu className="w-6 h-6" />
+        </label>
+      </div>
+
       <div className="flex-grow font-medium max-w-sm flex flex-col gap-5 text-center mt-5">
         <h1>How To Play</h1>
         <p>
