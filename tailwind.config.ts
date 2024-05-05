@@ -8,14 +8,22 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+  daisyui: {
+    themes: [
+      {
+        maintheme: {
+          primary: "#D5258F",
+          secondary: "#ffffff",
+          accent: "#b3d135",
+          neutral: "#f0f6fb",
+          "base-100": "#5A12AA",
+          info: "#67e8f9",
+          success: "#4ade80",
+          warning: "#fde047",
+          error: "#fca5a5",
+        },
       },
-    },
+    ],
   },
   plugins: [daisyui],
 };
