@@ -13,7 +13,7 @@ type CellProps = {
   direction: SnakeDirection;
   isFruit: boolean;
   isNearFruit: boolean;
-  checkered: boolean;
+  checkered?: boolean;
 };
 
 export default function Cell({
