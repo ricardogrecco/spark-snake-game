@@ -1,5 +1,6 @@
 "use client";
 
+import { isSnakeNearFruit } from "@/app/helpers/isSnakeNearFruit";
 import { FruitProps, SnakeProps } from "@/app/types";
 import { BOARD_SIZE } from "@/app/utils/constants";
 import dynamic from "next/dynamic";
@@ -28,8 +29,7 @@ export default function Board({ snake, fruit }: BoardProps) {
                 "RIGHT"
               }
               isFruit={fruit.x === j && fruit.y === i}
-              isNearFruit={false}
-              checkered={(i + j) % 2 ? true : false}
+              isNearFruit={isSnakeNearFruit(snake[0], fruit)}
             />
           ))}
         </div>
