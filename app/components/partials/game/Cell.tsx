@@ -1,6 +1,12 @@
 "use client";
 import { SnakeDirection } from "@/app/types";
 
+// SVGS
+import SNAKE_HEAD_OPEN from "assets/SnakeHeadOpen.svg";
+import SNAKE_HEAD from "assets/SnakeHead.svg";
+import SNAKE_BODY from "assets/SnakeBody.svg";
+import FRUIT from "assets/Fruit.svg";
+
 type CellProps = {
   isSnakeHead: boolean;
   isSnakeBody: boolean;
