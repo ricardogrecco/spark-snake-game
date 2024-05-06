@@ -1,4 +1,4 @@
-import Drawer from "../partials/Drawer";
+"use client";
 
 export default function MobileLayout({
   children,
