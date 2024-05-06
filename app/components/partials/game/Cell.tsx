@@ -47,7 +47,9 @@ export default function Cell({
           }
         />
       )}
-      {isSnakeBody && <img src="assets/SnakeBody.svg" alt="Snake Body" />}
+      {isSnakeBody && (
+        <img src="assets/SnakeBody.svg" alt="Snake Body" className="w-4 h-4" />
+      )}
       {isFruit && <img src="assets/Fruit.svg" alt="Fruit" />}
     </div>
   );
