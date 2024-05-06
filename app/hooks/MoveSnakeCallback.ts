@@ -3,18 +3,34 @@ import { SnakeProps, SnakeDirection, FruitProps } from "../types";
 import { BOARD_SIZE } from "../utils/constants";
 import { generateFruit } from "../helpers/generateFruit";
 
-type MoveSnakeCallbackProps = {};
+type MoveSnakeCallbackProps = {
+  setSnake: React.Dispatch<React.SetStateAction<SnakeProps[]>>;
+  direction: SnakeDirection;
+  tailLength: number;
+  intervalId: MutableRefObject<NodeJS.Timeout | null>;
+  setTailLength: React.Dispatch<React.SetStateAction<number>>;
+  fruit: FruitProps;
+  setFruit: React.Dispatch<React.SetStateAction<FruitProps>>;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+  isGameOver: boolean;
+  setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-export default function MoveSnakeCallback(
-  setSnake: React.Dispatch<React.SetStateAction<SnakeProps[]>>,
-  direction: SnakeDirection,
-  trailLength: number,
-  intervalId: MutableRefObject<NodeJS.Timeout | null>,
-  setTrailLength: React.Dispatch<React.SetStateAction<number>>,
-  fruit: FruitProps,
-  setFruit: React.Dispatch<React.SetStateAction<FruitProps>>
-) {
+const useMoveSnakeCallback = ({
+  setSnake,
+  direction,
+  tailLength,
+  intervalId,
+  setTailLength,
+  fruit,
+  setFruit,
+  setScore,
+  isGameOver,
+  setIsGameOver,
+}: MoveSnakeCallbackProps) => {
   return useCallback(() => {
+    if (isGameOver) return;
+
     setSnake((prevSnake) => {
       const newSnake = [...prevSnake];
       const head = { ...newSnake[0] };
@@ -46,26 +62,53 @@ export default function MoveSnakeCallback(
         head.y >= BOARD_SIZE
       ) {
         if (intervalId.current) clearInterval(intervalId.current);
+        setIsGameOver(true);
+        console.log("Game Over", {
+          newSnake,
+          isGameOver,
+          timestamp: Date.now(),
+        });
         return prevSnake;
       }
 
       if (newSnake.some((cell) => cell.x === head.x && cell.y === head.y)) {
         if (intervalId.current) clearInterval(intervalId.current);
+        setIsGameOver(true);
+        console.log("Game Over", {
+          newSnake,
+          isGameOver,
+          timestamp: Date.now(),
+        });
         return prevSnake;
       }
 
       if (head.x === fruit.x && head.y === fruit.y) {
-        setTrailLength((prevLength) => prevLength + 1); // increase the trail length
+        setTailLength((prevLength) => prevLength + 1);
         setFruit(generateFruit(newSnake));
+        setScore((score) => score + 1);
       }
 
       newSnake.unshift(head);
 
-      if (newSnake.length > trailLength) {
+      if (newSnake.length > tailLength) {
         newSnake.pop();
       }
 
+      console.log("Snake", { newSnake, timestamp: Date.now() });
       return newSnake;
     });
-  }, [direction, trailLength]);
-}
+  }, [
+    direction,
+    tailLength,
+    isGameOver,
+    setSnake,
+    setTailLength,
+    fruit,
+    setFruit,
+    setScore,
+    setIsGameOver,
+    intervalId,
+  ]);
+};
+
+export default useMoveSnakeCallback;
