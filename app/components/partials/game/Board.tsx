@@ -1,8 +1,10 @@
 "use client";
 
 import { FruitProps, SnakeProps } from "@/app/types";
-import Cell from "./Cell";
 import { BOARD_SIZE } from "@/app/utils/constants";
+import dynamic from "next/dynamic";
+
+const Cell = dynamic(() => import("./Cell"), { ssr: false });
 
 type BoardProps = {
   snake: SnakeProps[];
