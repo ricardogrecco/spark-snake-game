@@ -10,6 +10,9 @@ import { BOARD_SIZE } from "@/app/utils/constants";
 import dynamic from "next/dynamic";
 import { useRef, useState } from "react";
 
+// SVG
+import Fruit from "@/public/assets/Fruit.svg";
+
 const Board = dynamic(() => import("@/app/components/partials/game/Board"), {
   ssr: false,
 });
@@ -56,11 +59,7 @@ export default function GamePage() {
     <main className="bg-gradient-to-br from-[#5A12AA] to-[#290057] w-full h-full flex flex-col items-center justify-evenly gap-5 p-10 lg:p-16">
       <section className="flex flex-row justify-between items-center w-full">
         <div className="flex items-center flex-row gap-2">
-          <img
-            src="assets/Fruit.svg"
-            className="inline-block"
-            alt="Fruit Score"
-          />
+          <Fruit className="w-10 h-10" alt="Fruit Score" />
           <span className="inline-block text-xl font-bold">{score}</span>
         </div>
         <span className="text-2xl font-bold">0:01</span>
