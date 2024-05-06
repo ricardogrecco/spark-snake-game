@@ -1,8 +1,8 @@
-import { SnakeProps } from "../types";
+import { FruitProps, SnakeProps } from "../types";
 import { BOARD_SIZE } from "../utils/constants";
 
 export const generateFruit = (snake: SnakeProps[]) => {
-  let newFruit: { x: number; y: number };
+  let newFruit: FruitProps;
 
   do {
     newFruit = {
