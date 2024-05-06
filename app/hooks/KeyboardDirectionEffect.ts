@@ -7,8 +7,12 @@ export const useKeyboardDirectionEffect = (
   isGameOver: boolean
 ) => {
   useEffect(() => {
+    let isMoving = false;
+
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (isGameOver) return;
+      if (isGameOver || isMoving) return;
+
+      isMoving = true;
 
       switch (event.key) {
         case "ArrowUp":
@@ -32,6 +36,10 @@ export const useKeyboardDirectionEffect = (
           }
           break;
       }
+
+      setTimeout(() => {
+        isMoving = false;
+      }, 1000);
     };
 
     window.addEventListener("keydown", handleKeyDown);
