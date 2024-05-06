@@ -4,7 +4,8 @@ import { SnakeDirection, SnakeProps } from "../types";
 export const useKeyboardDirectionEffect = (
   snake: SnakeProps[],
   setDirection: (direction: SnakeDirection) => void,
-  isGameOver: boolean
+  isGameOver: boolean,
+  tailLength: number
 ) => {
   useEffect(() => {
     let isMoving = false;
@@ -39,7 +40,7 @@ export const useKeyboardDirectionEffect = (
 
       setTimeout(() => {
         isMoving = false;
-      }, 1000);
+      }, 500 - Math.sqrt(tailLength) * 50);
     };
 
     window.addEventListener("keydown", handleKeyDown);

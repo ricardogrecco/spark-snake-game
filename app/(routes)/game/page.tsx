@@ -32,7 +32,7 @@ export default function GamePage() {
   const [score, setScore] = useState<number>(0);
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
 
-  useKeyboardDirectionEffect(snake, setDirection, isGameOver);
+  useKeyboardDirectionEffect(snake, setDirection, isGameOver, tailLength);
 
   const moveSnake = useMoveSnakeCallback({
     setSnake,
