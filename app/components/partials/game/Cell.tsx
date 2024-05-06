@@ -38,9 +38,9 @@ export default function Cell({
           alt="Snake Head"
           className={
             direction === "UP"
-              ? "transform rotate-90"
-              : direction === "DOWN"
               ? "transform -rotate-90"
+              : direction === "DOWN"
+              ? "transform rotate-90"
               : direction === "LEFT"
               ? "transform rotate-180"
               : ""
