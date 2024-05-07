@@ -1,4 +1,4 @@
-import { MutableRefObject, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { SNAKE_SPEED, SNAKE_SPEED_INCREMENT } from "../utils/constants";
 import { GameContext } from "../context/GameContext";
 
