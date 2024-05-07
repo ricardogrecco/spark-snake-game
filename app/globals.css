@@ -34,6 +34,49 @@
   font-style: normal;
 }
 
+/* ANIMATION */
+@keyframes crashFade {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes crashAnim {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-crashFade {
+  animation-name: crashFade;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+.animate-crashAnim {
+  animation-name: crashAnim;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
 body {
   font-family: "AvenirNext LT Pro", sans-serif;
   font-size: 16px;
