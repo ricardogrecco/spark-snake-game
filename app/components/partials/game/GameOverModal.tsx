@@ -32,7 +32,7 @@ export default function GameOverModal() {
         <h2 className="text-4xl font-bold">Your Score</h2>
         <h1 className="text-9xl font-bold ">{score}</h1>
         <div className="w-full flex flex-col items-center gap-3">
-          {score > MIN_SPARKS && (
+          {score >= MIN_SPARKS && (
             <button
               className="btn btn-lg btn-primary  text-2xl w-full"
               onClick={() => setGameOver(false)}
