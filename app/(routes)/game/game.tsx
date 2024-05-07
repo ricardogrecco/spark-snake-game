@@ -5,18 +5,19 @@ import { useKeyboardDirectionEffect } from "@/app/hooks/KeyboardDirectionEffect"
 import useMoveSnakeCallback from "@/app/hooks/MoveSnakeCallback";
 import { useSnakeIntervalEffect } from "@/app/hooks/SnakeIntervalEffect";
 import dynamic from "next/dynamic";
-import { useContext, useRef, useState } from "react";
+import { useContext } from "react";
 
 // SVG
 import Fruit from "@/public/assets/Fruit.svg";
 import { GameContext } from "@/app/context/GameContext";
+import { formatTime } from "@/app/utils/formatTime";
 
 const Board = dynamic(() => import("@/app/components/partials/game/Board"), {
   ssr: false,
 });
 
 export default function MainGame() {
-  const { snake, fruit, score, gameOver } = useContext(GameContext);
+  const { snake, fruit, score, gameOver, timer } = useContext(GameContext);
 
   useKeyboardDirectionEffect();
 
@@ -32,7 +33,7 @@ export default function MainGame() {
             <Fruit className="w-10 h-10" alt="Fruit Score" />
             <span className="inline-block text-2xl font-bold">{score}</span>
           </div>
-          <span className="text-2xl font-bold">0:01</span>
+          <span className="text-2xl font-bold">{formatTime(timer)}</span>
         </div>
         <Board snake={snake} fruit={fruit} isGameOver={gameOver} />
       </section>
