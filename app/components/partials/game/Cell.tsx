@@ -6,6 +6,8 @@ import SNAKE_HEAD_OPEN from "@/public/assets/SnakeHeadOpen.svg";
 import SNAKE_HEAD from "@/public/assets/SnakeHead.svg";
 import SNAKE_BODY from "@/public/assets/SnakeBody.svg";
 import FRUIT from "@/public/assets/Fruit.svg";
+import CRASH from "@/public/assets/Crash.svg";
+
 import React from "react";
 
 type CellProps = {
@@ -32,6 +34,25 @@ const Cell = React.memo(
           checkered && "bg-base-300"
         }`}
       >
+        {isGameOver && isSnakeHead && (
+          <span
+            className={`absolute  ${
+              direction === "UP"
+                ? "transform rotate-90 -mb-3"
+                : direction === "DOWN"
+                ? "transform -rotate-90 -mt-3"
+                : direction === "LEFT"
+                ? "transform -mr-3"
+                : "transform rotate-180 -ml-3"
+            }`}
+          >
+            <CRASH
+              alt="Crash"
+              className={`w-10 h-10 animate-crashFade
+            `}
+            />
+          </span>
+        )}
         {isSnakeHead && isNearFruit && (
           <SNAKE_HEAD_OPEN
             alt="Snake Head Open"
