@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { SnakeDirection, SnakeProps } from "../types";
+import { SNAKE_SPEED, SNAKE_SPEED_INCREMENT } from "../utils/constants";
 
 export const useKeyboardDirectionEffect = (
   snake: SnakeProps[],
@@ -40,7 +41,7 @@ export const useKeyboardDirectionEffect = (
 
       setTimeout(() => {
         isMoving = false;
-      }, 500 - Math.sqrt(tailLength) * 50);
+      }, SNAKE_SPEED - Math.sqrt(tailLength) * SNAKE_SPEED_INCREMENT);
     };
 
     window.addEventListener("keydown", handleKeyDown);
