@@ -1,35 +1,24 @@
-import React, { MutableRefObject, useCallback } from "react";
-import { SnakeProps, SnakeDirection, FruitProps } from "../types";
+import { useCallback, useContext } from "react";
 import { BOARD_SIZE } from "../utils/constants";
 import { generateFruit } from "../helpers/generateFruit";
+import { GameContext } from "../context/GameContext";
 
-type MoveSnakeCallbackProps = {
-  setSnake: React.Dispatch<React.SetStateAction<SnakeProps[]>>;
-  direction: SnakeDirection;
-  tailLength: number;
-  intervalId: MutableRefObject<NodeJS.Timeout | null>;
-  setTailLength: React.Dispatch<React.SetStateAction<number>>;
-  fruit: FruitProps;
-  setFruit: React.Dispatch<React.SetStateAction<FruitProps>>;
-  setScore: React.Dispatch<React.SetStateAction<number>>;
-  isGameOver: boolean;
-  setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
-};
+const useMoveSnakeCallback = () => {
+  const {
+    direction,
+    setSnake,
+    tailLength,
+    setTailLength,
+    snakeInterval,
+    fruit,
+    setFruit,
+    gameOver,
+    setGameOver,
+    setScore,
+  } = useContext(GameContext);
 
-const useMoveSnakeCallback = ({
-  setSnake,
-  direction,
-  tailLength,
-  intervalId,
-  setTailLength,
-  fruit,
-  setFruit,
-  setScore,
-  isGameOver,
-  setIsGameOver,
-}: MoveSnakeCallbackProps) => {
   return useCallback(() => {
-    if (isGameOver) return;
+    if (gameOver) return;
 
     setSnake((prevSnake) => {
       const newSnake = [...prevSnake];
@@ -61,22 +50,22 @@ const useMoveSnakeCallback = ({
         head.y < 0 ||
         head.y >= BOARD_SIZE
       ) {
-        if (intervalId.current) clearInterval(intervalId.current);
-        setIsGameOver(true);
+        if (snakeInterval.current) clearInterval(snakeInterval.current);
+        setGameOver(true);
         console.log("Game Over", {
           newSnake,
-          isGameOver,
+          gameOver,
           timestamp: Date.now(),
         });
         return prevSnake;
       }
 
       if (newSnake.some((cell) => cell.x === head.x && cell.y === head.y)) {
-        if (intervalId.current) clearInterval(intervalId.current);
-        setIsGameOver(true);
+        if (snakeInterval.current) clearInterval(snakeInterval.current);
+        setGameOver(true);
         console.log("Game Over", {
           newSnake,
-          isGameOver,
+          gameOver,
           timestamp: Date.now(),
         });
         return prevSnake;
@@ -100,14 +89,14 @@ const useMoveSnakeCallback = ({
   }, [
     direction,
     tailLength,
-    isGameOver,
+    gameOver,
     setSnake,
     setTailLength,
     fruit,
     setFruit,
     setScore,
-    setIsGameOver,
-    intervalId,
+    setGameOver,
+    snakeInterval,
   ]);
 };
 

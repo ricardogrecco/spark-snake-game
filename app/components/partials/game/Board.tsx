@@ -10,11 +10,12 @@ const Cell = dynamic(() => import("./Cell"), { ssr: false });
 type BoardProps = {
   snake: SnakeProps[];
   fruit: FruitProps;
+  isGameOver: boolean;
 };
 
-export default function Board({ snake, fruit }: BoardProps) {
+export default function Board({ snake, fruit, isGameOver }: BoardProps) {
   return (
-    <div className="grid bg-base-100 rounded-md scale-110 lg:scale-150 lg:my-20">
+    <div className="grid bg-[#26035B] rounded-md scale-110 lg:scale-150 lg:my-20 bg-blend-overlay shadow-md">
       {Array.from({ length: BOARD_SIZE }, (_, i) => (
         <div key={i} className="flex">
           {Array.from({ length: BOARD_SIZE }, (_, j) => (
@@ -30,6 +31,7 @@ export default function Board({ snake, fruit }: BoardProps) {
               }
               isFruit={fruit.x === j && fruit.y === i}
               isNearFruit={isSnakeNearFruit(snake[0], fruit)}
+              isGameOver={isGameOver}
             />
           ))}
         </div>

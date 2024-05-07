@@ -1,4 +1,6 @@
-import MobileLayout from "@/app/components/layout/MobileLayout";
+import GameOverModal from "@/app/components/partials/game/GameOverModal";
+import GameProvider from "@/app/context/GameContext";
+
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,8 +13,9 @@ export default function GameLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex flex-col items-center justify-center bg-base-300">
-      <MobileLayout>{children}</MobileLayout>
-    </div>
+    <GameProvider>
+      <GameOverModal />
+      {children}
+    </GameProvider>
   );
 }
