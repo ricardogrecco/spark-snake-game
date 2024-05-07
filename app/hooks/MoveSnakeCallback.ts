@@ -18,7 +18,10 @@ const useMoveSnakeCallback = () => {
   } = useContext(GameContext);
 
   return useCallback(() => {
-    if (gameOver) return;
+    if (gameOver) {
+      if (snakeInterval.current) clearInterval(snakeInterval.current);
+      return;
+    }
 
     setSnake((prevSnake) => {
       const newSnake = [...prevSnake];
