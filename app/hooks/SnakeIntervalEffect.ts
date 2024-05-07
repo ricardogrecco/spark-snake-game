@@ -1,30 +1,27 @@
-import { MutableRefObject, useEffect } from "react";
+import { MutableRefObject, useContext, useEffect } from "react";
 import { SNAKE_SPEED, SNAKE_SPEED_INCREMENT } from "../utils/constants";
+import { GameContext } from "../context/GameContext";
 
-export const useSnakeIntervalEffect = (
-  tailLength: number,
-  intervalId: MutableRefObject<NodeJS.Timeout | null>,
-  setInterval: (callback: () => void, ms: number) => NodeJS.Timeout,
-  moveSnake: () => void,
-  isGameOver: boolean
-) => {
+export const useSnakeIntervalEffect = (moveSnake: () => void) => {
+  const { tailLength, snakeInterval, gameOver } = useContext(GameContext);
+
   useEffect(() => {
-    if (isGameOver) {
-      if (intervalId.current) {
-        clearInterval(intervalId.current);
+    if (gameOver) {
+      if (snakeInterval.current) {
+        clearInterval(snakeInterval.current);
       }
       return;
     }
 
-    intervalId.current = setInterval(
+    snakeInterval.current = setInterval(
       moveSnake,
       SNAKE_SPEED - Math.sqrt(tailLength) * SNAKE_SPEED_INCREMENT
     );
 
     return () => {
-      if (intervalId.current) {
-        clearInterval(intervalId.current);
+      if (snakeInterval.current) {
+        clearInterval(snakeInterval.current);
       }
     };
-  }, [moveSnake, tailLength, isGameOver, setInterval]);
+  }, [moveSnake, tailLength, gameOver]);
 };

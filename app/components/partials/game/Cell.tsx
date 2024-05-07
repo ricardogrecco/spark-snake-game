@@ -17,6 +17,7 @@ type CellProps = {
   isFruit: boolean;
   isNearFruit: boolean;
   checkered?: boolean;
+  isGameOver: boolean;
 };
 
 const Cell = React.memo(
@@ -27,6 +28,7 @@ const Cell = React.memo(
     isFruit,
     isNearFruit,
     checkered = false,
+    isGameOver = false,
   }: CellProps) => {
     return (
       <div

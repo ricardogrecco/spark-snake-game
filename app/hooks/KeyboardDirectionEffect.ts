@@ -1,18 +1,18 @@
-import { useEffect } from "react";
-import { SnakeDirection, SnakeProps } from "../types";
+import { useContext, useEffect, useRef } from "react";
+import { SnakeDirection } from "../types";
 import { SNAKE_SPEED, SNAKE_SPEED_INCREMENT } from "../utils/constants";
+import { GameContext } from "../context/GameContext";
 
-export const useKeyboardDirectionEffect = (
-  snake: SnakeProps[],
-  setDirection: (direction: SnakeDirection) => void,
-  isGameOver: boolean,
-  tailLength: number
-) => {
+export const useKeyboardDirectionEffect = () => {
+  const { snake, setDirection, gameOver, tailLength } = useContext(GameContext);
+
+  const directionBuffer = useRef<SnakeDirection | null>(null);
+
   useEffect(() => {
     let isMoving = false;
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (isGameOver || isMoving) return;
+      if (gameOver || isMoving) return;
 
       isMoving = true;
 
@@ -49,5 +49,12 @@ export const useKeyboardDirectionEffect = (
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [snake, setDirection, isGameOver]);
+  }, [snake, setDirection, gameOver]);
+
+  useEffect(() => {
+    if (directionBuffer.current) {
+      setDirection(directionBuffer.current);
+      directionBuffer.current = null;
+    }
+  }, [snake]);
 };
