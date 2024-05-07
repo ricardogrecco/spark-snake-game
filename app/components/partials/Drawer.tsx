@@ -37,7 +37,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
               )}
             </li>
             <li>
-              <Link href="#">Play Now</Link>
+              <Link href="/game">Play Now</Link>
             </li>
             <li>
               <Link href="#">How It Works</Link>
