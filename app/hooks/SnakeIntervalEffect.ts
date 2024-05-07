@@ -1,4 +1,5 @@
 import { MutableRefObject, useEffect } from "react";
+import { SNAKE_SPEED, SNAKE_SPEED_INCREMENT } from "../utils/constants";
 
 export const useSnakeIntervalEffect = (
   tailLength: number,
@@ -17,7 +18,7 @@ export const useSnakeIntervalEffect = (
 
     intervalId.current = setInterval(
       moveSnake,
-      500 - Math.sqrt(tailLength) * 50
+      SNAKE_SPEED - Math.sqrt(tailLength) * SNAKE_SPEED_INCREMENT
     );
 
     return () => {
