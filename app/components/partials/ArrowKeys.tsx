@@ -43,7 +43,7 @@ export default function ArrowKeys({ disabled = true }: ArrowKeysProps) {
           onClick={() => dispatchArrowKey("ArrowDown")}
           className="bg-[#772BCB] w-full h-full p-2"
         >
-          <button className="bg-[#430E7D] btn w-full h-full p-3 items-center flex justify-center shadow-md">
+          <button className="bg-[#430E7D] btn w-full h-full p-3 items-center flex justify-center rounded shadow-md">
             <BiSolidDownArrow className="w-full h-full" />
           </button>
         </div>
