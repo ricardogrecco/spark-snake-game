@@ -91,3 +91,11 @@ h1 {
   font-size: 24px;
   font-weight: 700;
 }
+
+/* CUSTOM */
+
+.footer-item:not(:last-child)::after {
+  content: "·";
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
