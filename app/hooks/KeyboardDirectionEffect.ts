@@ -1,12 +1,9 @@
-import { useContext, useEffect, useRef } from "react";
-import { SnakeDirection } from "../types";
+import { useContext, useEffect } from "react";
 import { SNAKE_SPEED, SNAKE_SPEED_INCREMENT } from "../utils/constants";
 import { GameContext } from "../context/GameContext";
 
 export const useKeyboardDirectionEffect = () => {
   const { snake, setDirection, gameOver, tailLength } = useContext(GameContext);
-
-  const directionBuffer = useRef<SnakeDirection | null>(null);
 
   useEffect(() => {
     let isMoving = false;
@@ -50,11 +47,4 @@ export const useKeyboardDirectionEffect = () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [snake, setDirection, gameOver]);
-
-  useEffect(() => {
-    if (directionBuffer.current) {
-      setDirection(directionBuffer.current);
-      directionBuffer.current = null;
-    }
-  }, [snake]);
 };
