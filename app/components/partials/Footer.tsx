@@ -5,8 +5,8 @@ type FooterProps = HTMLAttributes<HTMLElement>;
 export default function Footer({ ...props }: FooterProps) {
   return (
     <footer className="p-2 w-full text-xs lg:text-sm mt-5 lg:mt-0" {...props}>
-      <ul className="flex flex-row items-center w-full justify-center gap-2 lg:gap-5 text-center">
-        <li>
+      <ul className="flex flex-row items-center w-full justify-center text-center">
+        <li className="footer-item">
           <a
             href="https://www.spark.co.nz/help/privacy-and-safety/how-we-manage-privacy/spark-privacy-policies"
             target="_blank"
@@ -14,7 +14,7 @@ export default function Footer({ ...props }: FooterProps) {
             Privacy
           </a>
         </li>
-        <li>
+        <li className="footer-item">
           <a
             href="https://www.spark.co.nz/help/other/legaldisclaimer/"
             target="_blank"
@@ -22,7 +22,7 @@ export default function Footer({ ...props }: FooterProps) {
             Legal Disclaimer
           </a>
         </li>
-        <li>
+        <li className="footer-item">
           <a href="#">Terms of Use</a>
         </li>
       </ul>
