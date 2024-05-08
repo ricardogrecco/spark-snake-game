@@ -13,7 +13,7 @@ export default function TutorialPageLayout({
 }>) {
   return (
     <Drawer>
-      <div className="flex flex-col items-center justify-center bg-base-300">
+      <div className="flex flex-col items-center justify-center bg-[#430E7D]">
         <MobileLayout>{children}</MobileLayout>
       </div>
     </Drawer>
