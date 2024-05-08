@@ -38,7 +38,7 @@ export const useKeyboardDirectionEffect = () => {
 
       setTimeout(() => {
         isMoving = false;
-      }, SNAKE_SPEED - Math.sqrt(tailLength) * SNAKE_SPEED_INCREMENT);
+      }, (SNAKE_SPEED - Math.sqrt(tailLength) * SNAKE_SPEED_INCREMENT) * 0.75);
     };
 
     window.addEventListener("keydown", handleKeyDown);
