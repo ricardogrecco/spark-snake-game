@@ -46,7 +46,7 @@ export default function MainGame() {
         <Board snake={snake} fruit={fruit} isGameOver={gameOver} />
       </section>
       <section className="scale-110 mt-10 mb-12 md:scale-125 md:mt-24 lg:scale-110 lg:-mt-10 xl:scale-150 xl:mt-10 nest-hub:keys nest-hub-max:keys">
-        <ArrowKeys />
+        <ArrowKeys disabled={false} />
       </section>
     </div>
   );
