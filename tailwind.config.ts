@@ -35,7 +35,7 @@ const config: Config = {
           "base-100": "#5A12AA",
           info: "#ffffff",
           success: "#4ade80",
-          warning: "#fde047",
+          warning: "#FF9C28",
           error: "#fca5a5",
         },
       },

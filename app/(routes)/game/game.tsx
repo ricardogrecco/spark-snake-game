@@ -33,7 +33,15 @@ export default function MainGame() {
             <Fruit className="w-10 h-10" alt="Fruit Score" />
             <span className="inline-block text-2xl font-bold">{score}</span>
           </div>
-          <span className="text-2xl font-bold">{formatTime(timer)}</span>
+          <span
+            className={`text-2xl font-bold ${
+              timer / 1000 <= 10 && "text-warning"
+            } ${
+              !gameOver && timer / 1000 <= 10 && "animate-bounce duration-1000"
+            }`}
+          >
+            {formatTime(timer)}
+          </span>
         </div>
         <Board snake={snake} fruit={fruit} isGameOver={gameOver} />
       </section>
