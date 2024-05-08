@@ -5,5 +5,9 @@ export default function MobileLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="max-w-screen-md w-full h-screen">{children}</div>;
+  return (
+    <div className="max-w-screen-lg lg:max-w-screen-md w-full h-screen">
+      {children}
+    </div>
+  );
 }
