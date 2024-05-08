@@ -27,7 +27,7 @@ export default function GameOverModal() {
   }, [gameOver]);
 
   return (
-    <dialog id="game-over-modal" className="modal overflow-hidden">
+    <dialog id="game-over-modal" className="modal">
       <div className="modal-box bg-[#772BCB] max-w-sm flex flex-col items-center justify-evenly gap-10 p-10">
         <h2 className="text-4xl font-bold">Your Score</h2>
         <h1 className="text-9xl font-bold ">{score}</h1>
