@@ -20,7 +20,10 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
         ></label>
         <div className="w-max bg-base-100 h-full p-10 flex flex-col gap-5">
           <div className="w-full flex-grow flex justify-end">
-            <label className="btn btn-circle" htmlFor="side-drawer">
+            <label
+              className="btn btn-circle bg-[#772bcb]"
+              htmlFor="side-drawer"
+            >
               <IoMdClose className="w-5 h-5" />
             </label>
           </div>
