@@ -76,7 +76,7 @@ const useMoveSnakeCallback = () => {
 
       if (head.x === fruit.x && head.y === fruit.y) {
         setTailLength((prevLength) => prevLength + 1);
-        setFruit(generateFruit(newSnake));
+        setFruit(generateFruit(newSnake, fruit));
         setScore((score) => score + 1);
       }
 

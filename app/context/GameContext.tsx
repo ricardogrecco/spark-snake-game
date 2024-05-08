@@ -66,7 +66,12 @@ export default function GameProvider({
       direction: "RIGHT",
     },
   ]);
-  const [fruit, setFruit] = useState<FruitProps>(generateFruit(snake));
+  const [fruit, setFruit] = useState<FruitProps>(
+    generateFruit(snake, {
+      x: Math.floor(BOARD_SIZE / 2),
+      y: Math.floor(BOARD_SIZE / 2),
+    })
+  );
   const [score, setScore] = useState<number>(0);
   const [gameOver, setGameOver] = useState<boolean>(false);
 
@@ -92,7 +97,7 @@ export default function GameProvider({
 
       setTailLength(1);
 
-      setFruit(generateFruit(snake));
+      setFruit(generateFruit(snake, fruit));
 
       setScore(0);
 
