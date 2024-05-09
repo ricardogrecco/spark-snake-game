@@ -124,3 +124,13 @@ h1 {
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
+
+* {
+  scrollbar-gutter: none !important;
+  scrollbar-width: none;
+  /* overflow: auto; */
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
