@@ -31,27 +31,27 @@ export default function ArrowKeys({ disabled = true }: ArrowKeysProps) {
           </button>
         </div>
         <div className="w-full h-full"></div>
-        <div
-          onClick={() => dispatchArrowKey("ArrowLeft")}
-          className="bg-[#772BCB] w-full h-full p-2 rounded-l"
-        >
-          <button className="bg-[#430E7D] btn w-full h-full p-3 items-center flex justify-center rounded shadow-md">
+        <div className="bg-[#772BCB] w-full h-full p-2 rounded-l">
+          <button
+            onClick={() => dispatchArrowKey("ArrowLeft")}
+            className="bg-[#430E7D] btn w-full h-full p-3 items-center flex justify-center rounded shadow-md"
+          >
             <BiSolidLeftArrow className="w-full h-full" />
           </button>
         </div>
-        <div
-          onClick={() => dispatchArrowKey("ArrowDown")}
-          className="bg-[#772BCB] w-full h-full p-2"
-        >
-          <button className="bg-[#430E7D] btn w-full h-full p-3 items-center flex justify-center rounded shadow-md">
+        <div className="bg-[#772BCB] w-full h-full p-2">
+          <button
+            onClick={() => dispatchArrowKey("ArrowDown")}
+            className="bg-[#430E7D] btn w-full h-full p-3 items-center flex justify-center rounded shadow-md"
+          >
             <BiSolidDownArrow className="w-full h-full" />
           </button>
         </div>
-        <div
-          onClick={() => dispatchArrowKey("ArrowRight")}
-          className="bg-[#772BCB] w-full h-full p-2 rounded-r"
-        >
-          <button className="bg-[#430E7D] btn w-full h-full p-3 items-center flex justify-center rounded shadow-md">
+        <div className="bg-[#772BCB] w-full h-full p-2 rounded-r">
+          <button
+            onClick={() => dispatchArrowKey("ArrowRight")}
+            className="bg-[#430E7D] btn w-full h-full p-3 items-center flex justify-center rounded shadow-md"
+          >
             <BiSolidRightArrow className="w-full h-full" />
           </button>
         </div>
