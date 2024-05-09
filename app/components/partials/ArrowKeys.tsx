@@ -22,10 +22,10 @@ export default function ArrowKeys({ disabled = true }: ArrowKeysProps) {
     <section className="w-48 h-48 lg:w-48 lg:h-48 self-center -mb-14">
       <div className="grid grid-cols-3 grid-rows-3 h-full w-full justify-items-center">
         <div className="w-full h-full"></div>
-        <div className="bg-[#772BCB] w-full h-full p-2 rounded-t">
+        <div className="bg-[#772BCB] w-full h-full pt-2 px-2 rounded-t mt-2">
           <button
             onClick={() => dispatchArrowKey("ArrowUp")}
-            className="bg-[#430E7D] btn w-full h-full p-3 items-center flex justify-center rounded shadow-md"
+            className="bg-[#430E7D] btn w-22 h-3 p-3 items-center flex justify-center rounded shadow-md"
           >
             <BiSolidUpArrow className="w-full h-full" />
           </button>
