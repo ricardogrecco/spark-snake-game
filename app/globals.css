@@ -103,6 +103,9 @@ h1 {
   .nest-hub\:tutorial {
     @apply max-w-screen-sm fixed mt-10;
   }
+  .nest-hub\:tutorial-main {
+    @apply p-0;
+  }
 }
 
 @media (min-width: 1280px) and (max-height: 800px) {
