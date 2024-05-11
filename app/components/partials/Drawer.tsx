@@ -43,7 +43,15 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
               <Link href="/game">Play Now</Link>
             </li>
             <li>
-              <Link href="#">How It Works</Link>
+              {pathname === "/tutorial" ? (
+                <label htmlFor="side-drawer" className="cursor-pointer">
+                  How It Works
+                </label>
+              ) : (
+                <Link href="/tutorial" className="cursor-pointer">
+                  How It Works
+                </Link>
+              )}
             </li>
           </ul>
           <Footer className="flex flex-row w-full justify-center gap-5 text-xs" />
