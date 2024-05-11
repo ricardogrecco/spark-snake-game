@@ -7,8 +7,8 @@ import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
 export default function TutorialPage() {
   return (
-    <main className="bg-[#430E7D] min-h-screen w-full flex flex-col items-center p-10">
-      <div className="flex flex-row justify-between items-center w-full">
+    <main className="bg-[#430E7D] min-h-screen w-full flex flex-col items-center p-10 nest-hub:tutorial-main">
+      <div className="flex flex-row justify-between items-center w-full nest-hub:tutorial">
         <Link href="/" className="btn btn-ghost drawer-button -m-5">
           <MdOutlineKeyboardArrowLeft className="w-8 h-8" />
         </Link>
@@ -20,7 +20,7 @@ export default function TutorialPage() {
         </label>
       </div>
 
-      <div className="flex-grow font-medium max-w-sm flex flex-col gap-5 text-center mt-5">
+      <div className="flex-grow font-medium flex flex-col gap-5 text-center mt-5 max-w-sm lg:max-w-screen-lg xl:max-w-sm">
         <h1>How To Play</h1>
         <p>
           Collect as many sparks{" "}
