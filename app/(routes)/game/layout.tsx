@@ -4,7 +4,7 @@ import GameProvider from "@/app/context/GameContext";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Game",
+  title: "Snake Game - Spark NZ",
 };
 
 export default function GameLayout({
