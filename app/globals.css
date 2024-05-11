@@ -34,6 +34,49 @@
   font-style: normal;
 }
 
+/* ANIMATION */
+@keyframes crashFade {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes crashAnim {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-crashFade {
+  animation-name: crashFade;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+.animate-crashAnim {
+  animation-name: crashAnim;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
 body {
   font-family: "AvenirNext LT Pro", sans-serif;
   font-size: 16px;
@@ -47,4 +90,47 @@ p {
 h1 {
   font-size: 24px;
   font-weight: 700;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 1024px) and (max-height: 600px) {
+  .nest-hub\:board {
+    @apply -mt-40;
+  }
+  .nest-hub\:keys {
+    @apply fixed bottom-0 -mb-[-20px];
+  }
+  .nest-hub\:tutorial {
+    @apply max-w-screen-sm fixed mt-10;
+  }
+  .nest-hub\:tutorial-main {
+    @apply p-0;
+  }
+}
+
+@media (min-width: 1280px) and (max-height: 800px) {
+  .nest-hub\:board {
+    @apply -mt-52;
+  }
+  .nest-hub\:keys {
+    @apply fixed bottom-0 -mb-[-45px];
+  }
+}
+
+/* CUSTOM */
+
+.footer-item:not(:last-child)::after {
+  content: "·";
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+* {
+  scrollbar-gutter: none !important;
+  scrollbar-width: none;
+  /* overflow: auto; */
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
