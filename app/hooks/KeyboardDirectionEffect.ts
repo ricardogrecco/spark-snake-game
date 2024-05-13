@@ -3,7 +3,8 @@ import { SNAKE_SPEED, SNAKE_SPEED_INCREMENT } from "../utils/constants";
 import { GameContext } from "../context/GameContext";
 
 export const useKeyboardDirectionEffect = () => {
-  const { snake, setDirection, gameOver, tailLength } = useContext(GameContext);
+  const { snake, setDirection, gameOver, tailLength, soundMove } =
+    useContext(GameContext);
 
   useEffect(() => {
     let isMoving = false;
@@ -17,21 +18,25 @@ export const useKeyboardDirectionEffect = () => {
         case "ArrowUp":
           if (snake[0].direction !== "DOWN") {
             setDirection("UP");
+            soundMove();
           }
           break;
         case "ArrowRight":
           if (snake[0].direction !== "LEFT") {
             setDirection("RIGHT");
+            soundMove();
           }
           break;
         case "ArrowDown":
           if (snake[0].direction !== "UP") {
             setDirection("DOWN");
+            soundMove();
           }
           break;
         case "ArrowLeft":
           if (snake[0].direction !== "RIGHT") {
             setDirection("LEFT");
+            soundMove();
           }
           break;
       }

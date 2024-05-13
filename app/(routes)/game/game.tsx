@@ -11,13 +11,15 @@ import { useContext } from "react";
 import Fruit from "@/public/assets/Fruit.svg";
 import { GameContext } from "@/app/context/GameContext";
 import { formatTime } from "@/app/utils/formatTime";
+import { MdVolumeOff, MdVolumeUp } from "react-icons/md";
 
 const Board = dynamic(() => import("@/app/components/partials/game/Board"), {
   ssr: false,
 });
 
 export default function MainGame() {
-  const { snake, fruit, score, gameOver, timer } = useContext(GameContext);
+  const { snake, fruit, score, gameOver, timer, muteSounds, setMuteSounds } =
+    useContext(GameContext);
 
   useKeyboardDirectionEffect();
 
@@ -28,6 +30,7 @@ export default function MainGame() {
   return (
     <div className="bg-gradient-to-br from-[#5A12AA]  to-[#290057] h-screen flex flex-col items-center justify-center gap-5 p-10 xl:p-16 ">
       <section className="scale-90 md:scale-125 lg:scale-75 xl:scale-100 nest-hub:board nest-hub-max:board">
+        {/* Score & Timer & Volume */}
         <div className="flex flex-row justify-between items-center w-full mb-10 lg:mb-24 scale-110 lg:scale-150">
           <div className="flex items-center flex-row gap-2">
             <Fruit className="w-10 h-10" alt="Fruit Score" />
@@ -42,7 +45,15 @@ export default function MainGame() {
           >
             {formatTime(timer)}
           </span>
+          <button onClick={() => setMuteSounds((sounds) => !sounds)}>
+            {muteSounds ? (
+              <MdVolumeOff className="w-10 h-10" />
+            ) : (
+              <MdVolumeUp className="w-10 h-10" />
+            )}
+          </button>
         </div>
+        {/* ////// */}
         <Board snake={snake} fruit={fruit} isGameOver={gameOver} />
       </section>
       <section className="scale-110 mt-10 mb-12 md:scale-125 md:mt-24 lg:scale-110 lg:-mt-10 xl:scale-150 xl:mt-10 nest-hub:keys nest-hub-max:keys">
