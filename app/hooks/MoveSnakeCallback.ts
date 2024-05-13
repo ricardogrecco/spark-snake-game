@@ -15,6 +15,7 @@ const useMoveSnakeCallback = () => {
     gameOver,
     setGameOver,
     setScore,
+    soundEat,
   } = useContext(GameContext);
 
   return useCallback(() => {
@@ -68,6 +69,7 @@ const useMoveSnakeCallback = () => {
         setTailLength((prevLength) => prevLength + 1);
         setFruit(generateFruit(newSnake, fruit));
         setScore((score) => score + 1);
+        soundEat();
       }
 
       newSnake.unshift(head);
