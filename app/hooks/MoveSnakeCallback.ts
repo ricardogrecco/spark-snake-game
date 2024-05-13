@@ -15,6 +15,7 @@ const useMoveSnakeCallback = () => {
     gameOver,
     setGameOver,
     setScore,
+    soundEat,
   } = useContext(GameContext);
 
   return useCallback(() => {
@@ -55,22 +56,12 @@ const useMoveSnakeCallback = () => {
       ) {
         if (snakeInterval.current) clearInterval(snakeInterval.current);
         setGameOver(true);
-        // console.log("Game Over", {
-        //   newSnake,
-        //   gameOver,
-        //   timestamp: Date.now(),
-        // });
         return prevSnake;
       }
 
       if (newSnake.some((cell) => cell.x === head.x && cell.y === head.y)) {
         if (snakeInterval.current) clearInterval(snakeInterval.current);
         setGameOver(true);
-        // console.log("Game Over", {
-        //   newSnake,
-        //   gameOver,
-        //   timestamp: Date.now(),
-        // });
         return prevSnake;
       }
 
@@ -78,6 +69,7 @@ const useMoveSnakeCallback = () => {
         setTailLength((prevLength) => prevLength + 1);
         setFruit(generateFruit(newSnake, fruit));
         setScore((score) => score + 1);
+        soundEat();
       }
 
       newSnake.unshift(head);
@@ -86,7 +78,6 @@ const useMoveSnakeCallback = () => {
         newSnake.pop();
       }
 
-      // console.log("Snake", { newSnake, timestamp: Date.now() });
       return newSnake;
     });
   }, [
