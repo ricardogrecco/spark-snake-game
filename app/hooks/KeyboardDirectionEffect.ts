@@ -18,25 +18,25 @@ export const useKeyboardDirectionEffect = () => {
         case "ArrowUp":
           if (snake[0].direction !== "DOWN") {
             setDirection("UP");
-            soundMove();
+            snake[0].direction !== "UP" && soundMove();
           }
           break;
         case "ArrowRight":
           if (snake[0].direction !== "LEFT") {
             setDirection("RIGHT");
-            soundMove();
+            snake[0].direction !== "RIGHT" && soundMove();
           }
           break;
         case "ArrowDown":
           if (snake[0].direction !== "UP") {
             setDirection("DOWN");
-            soundMove();
+            snake[0].direction !== "DOWN" && soundMove();
           }
           break;
         case "ArrowLeft":
           if (snake[0].direction !== "RIGHT") {
             setDirection("LEFT");
-            soundMove();
+            snake[0].direction !== "LEFT" && soundMove();
           }
           break;
       }
