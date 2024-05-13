@@ -9,46 +9,73 @@ import {
   TIMER,
 } from "../utils/constants";
 import { generateFruit } from "../helpers/generateFruit";
-import { useKeyboardDirectionEffect } from "../hooks/KeyboardDirectionEffect";
+
 import useMoveSnakeCallback from "../hooks/MoveSnakeCallback";
-import { useSnakeIntervalEffect } from "../hooks/SnakeIntervalEffect";
+
+import useSound from "use-sound";
 
 type GameContextType = {
+  // Direction
   direction: SnakeDirection;
   setDirection: React.Dispatch<React.SetStateAction<SnakeDirection>>;
+  // Tail Length
   tailLength: number;
   setTailLength: React.Dispatch<React.SetStateAction<number>>;
+  // Snake
   snake: SnakeProps[];
   setSnake: React.Dispatch<React.SetStateAction<SnakeProps[]>>;
+  // Fruit
   fruit: FruitProps;
   setFruit: React.Dispatch<React.SetStateAction<FruitProps>>;
+  // Score
   score: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
+  // Game Over
   gameOver: boolean;
   setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+  // Intervals
   snakeInterval: React.MutableRefObject<NodeJS.Timeout | null>;
   timer: number;
   setTimer: React.Dispatch<React.SetStateAction<number>>;
   timerInterval: React.MutableRefObject<NodeJS.Timeout | null>;
+  // Sounds
+  muteSounds: boolean;
+  setMuteSounds: React.Dispatch<React.SetStateAction<boolean>>;
+  soundEat: () => void;
+  soundMove: () => void;
+  soundGameOver: () => void;
 };
 
 export const GameContext = createContext<GameContextType>({
+  // Direction
   direction: "RIGHT",
   setDirection: () => {},
+  // Tail Length
   tailLength: 1,
   setTailLength: () => {},
+  // Snake
   snake: [],
   setSnake: () => {},
+  // Fruit
   fruit: { x: 0, y: 0 },
   setFruit: () => {},
+  // Score
   score: 0,
   setScore: () => {},
+  // Game Over
   gameOver: false,
   setGameOver: () => {},
+  // Intervals
   snakeInterval: { current: null },
   timer: 1000 * 60,
   setTimer: () => {},
   timerInterval: { current: null },
+  // Sounds
+  muteSounds: false,
+  setMuteSounds: () => {},
+  soundEat: () => {},
+  soundMove: () => {},
+  soundGameOver: () => {},
 });
 
 export default function GameProvider({
@@ -80,10 +107,23 @@ export default function GameProvider({
 
   const moveSnake = useMoveSnakeCallback();
 
+  // SOUNDS
+  const [muteSounds, setMuteSounds] = useState<boolean>(false);
+  const [soundEat] = useSound("/sounds/Eat.wav", {
+    soundEnabled: !muteSounds,
+  });
+  const [soundMove] = useSound("/sounds/Move.wav", {
+    soundEnabled: !muteSounds,
+  });
+  const [soundGameOver] = useSound("/sounds/Die.wav", {
+    soundEnabled: !muteSounds,
+  });
+
   useEffect(() => {
     if (gameOver) {
       if (timerInterval.current) clearInterval(timerInterval.current);
       if (snakeInterval.current) clearInterval(snakeInterval.current);
+      soundGameOver();
     } else {
       if (snakeInterval.current) clearInterval(snakeInterval.current);
 
@@ -154,6 +194,12 @@ export default function GameProvider({
           timer,
           setTimer,
           timerInterval,
+          // Sounds
+          muteSounds,
+          setMuteSounds,
+          soundEat,
+          soundMove,
+          soundGameOver,
         } as GameContextType
       }
     >
