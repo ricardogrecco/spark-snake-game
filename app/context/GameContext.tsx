@@ -9,23 +9,30 @@ import {
   TIMER,
 } from "../utils/constants";
 import { generateFruit } from "../helpers/generateFruit";
-import { useKeyboardDirectionEffect } from "../hooks/KeyboardDirectionEffect";
+
 import useMoveSnakeCallback from "../hooks/MoveSnakeCallback";
 import { useSnakeIntervalEffect } from "../hooks/SnakeIntervalEffect";
 
 type GameContextType = {
+  // Direction
   direction: SnakeDirection;
   setDirection: React.Dispatch<React.SetStateAction<SnakeDirection>>;
+  // Tail Length
   tailLength: number;
   setTailLength: React.Dispatch<React.SetStateAction<number>>;
+  // Snake
   snake: SnakeProps[];
   setSnake: React.Dispatch<React.SetStateAction<SnakeProps[]>>;
+  // Fruit
   fruit: FruitProps;
   setFruit: React.Dispatch<React.SetStateAction<FruitProps>>;
+  // Score
   score: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
+  // Game Over
   gameOver: boolean;
   setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+  // Intervals
   snakeInterval: React.MutableRefObject<NodeJS.Timeout | null>;
   timer: number;
   setTimer: React.Dispatch<React.SetStateAction<number>>;
@@ -33,18 +40,25 @@ type GameContextType = {
 };
 
 export const GameContext = createContext<GameContextType>({
+  // Direction
   direction: "RIGHT",
   setDirection: () => {},
+  // Tail Length
   tailLength: 1,
   setTailLength: () => {},
+  // Snake
   snake: [],
   setSnake: () => {},
+  // Fruit
   fruit: { x: 0, y: 0 },
   setFruit: () => {},
+  // Score
   score: 0,
   setScore: () => {},
+  // Game Over
   gameOver: false,
   setGameOver: () => {},
+  // Intervals
   snakeInterval: { current: null },
   timer: 1000 * 60,
   setTimer: () => {},
