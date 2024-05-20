@@ -18,7 +18,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="w-max bg-base-100 h-full p-10 flex flex-col gap-5">
+        <div className="w-max md:w-full md:max-w-md lg:max-w-lg bg-base-100 h-full p-10 flex flex-col gap-5">
           <img
             src="/assets/bg/sidemenu-bg.webp"
             alt="Side Menu Background"
