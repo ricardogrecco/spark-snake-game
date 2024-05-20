@@ -26,10 +26,10 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
           />
           <div className="w-full flex-grow flex justify-end">
             <label
-              className="btn btn-circle bg-[#772bcb]"
+              className="btn btn-circle bg-[#5A12AA] border-none -mr-5"
               htmlFor="side-drawer"
             >
-              <IoMdClose className="w-5 h-5" />
+              <IoMdClose className="w-8 h-8" />
             </label>
           </div>
           <ul className="space-y-2 lg:space-y-5 text-2xl lg:text-4xl font-bold">
