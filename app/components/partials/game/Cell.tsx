@@ -2,11 +2,12 @@
 import { SnakeDirection } from "@/app/types";
 
 // SVGS
-import SNAKE_HEAD_OPEN from "@/public/assets/SnakeHeadOpen.svg";
-import SNAKE_HEAD from "@/public/assets/SnakeHead.svg";
-import SNAKE_BODY from "@/public/assets/SnakeBody.svg";
+import SNAKE_HEAD_OPEN from "@/public/assets/SnakeHeadOpen2.svg";
+import SNAKE_HEAD from "@/public/assets/SnakeHead2.svg";
+import SNAKE_BODY from "@/public/assets/SnakeBody2.svg";
 import FRUIT from "@/public/assets/Fruit.svg";
 import CRASH from "@/public/assets/Crash.svg";
+import SNAKE_HEAD_OVER from "@/public/assets/SnakeHeadOver2.svg";
 
 import React from "react";
 
@@ -30,6 +31,18 @@ const Cell = React.memo(
     checkered = false,
     isGameOver = false,
   }: CellProps) => {
+    const snakeHeadDirectionClass = `w-9 h-9 absolute 
+              ${
+                direction === "UP"
+                  ? "transform -rotate-90"
+                  : direction === "DOWN"
+                  ? "transform rotate-90"
+                  : direction === "LEFT"
+                  ? "transform scale-x-[-1]"
+                  : ""
+              }
+            `;
+
     return (
       <div
         className={`w-5 h-5 flex items-center justify-center ${
@@ -55,41 +68,24 @@ const Cell = React.memo(
             />
           </span>
         )}
-        {isSnakeHead && isNearFruit && (
+        {!isGameOver && isSnakeHead && isNearFruit && (
           <SNAKE_HEAD_OPEN
             alt="Snake Head Open"
-            className={`w-5 h-5 absolute 
-              ${
-                direction === "UP"
-                  ? "transform -rotate-90"
-                  : direction === "DOWN"
-                  ? "transform rotate-90"
-                  : direction === "LEFT"
-                  ? "transform rotate-180"
-                  : ""
-              }
-            `}
+            className={snakeHeadDirectionClass}
           />
         )}
-        {isSnakeHead && !isNearFruit && (
-          <SNAKE_HEAD
-            alt="Snake Head"
-            className={`w-5 h-5 absolute 
-              ${
-                direction === "UP"
-                  ? "transform -rotate-90"
-                  : direction === "DOWN"
-                  ? "transform rotate-90"
-                  : direction === "LEFT"
-                  ? "transform rotate-180"
-                  : ""
-              }
-            `}
+        {!isGameOver && isSnakeHead && !isNearFruit && (
+          <SNAKE_HEAD alt="Snake Head" className={snakeHeadDirectionClass} />
+        )}
+        {isGameOver && isSnakeHead && (
+          <SNAKE_HEAD_OVER
+            alt="Snake Head Over"
+            className={snakeHeadDirectionClass}
           />
         )}
 
         {isSnakeBody && (
-          <SNAKE_BODY alt="Snake Body" className="absolute w-4 h-4" />
+          <SNAKE_BODY alt="Snake Body" className="absolute w-5 h-5" />
         )}
 
         {isFruit && <FRUIT alt="Fruit" className="absolute w-5 h-5" />}
