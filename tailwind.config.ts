@@ -22,6 +22,21 @@ const config: Config = {
         "195": "1.95",
         "200": "2",
       },
+      boxShadow: {
+        neon: "0 0 7px #20FECB, 0 0 7px #20FECB, 0 0 7px #20FECB, 0 0 7px #20FECB",
+      },
+      ringColor: {
+        neon: "#20FECB",
+      },
+      ringOffsetColor: {
+        neon: "#20FECB",
+      },
+      ringOffsetWidth: {
+        "3": "3px",
+      },
+      ringWidth: {
+        "2": "2px",
+      },
     },
   },
   daisyui: {
