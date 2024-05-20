@@ -33,7 +33,7 @@ const Cell = React.memo(
     return (
       <div
         className={`w-5 h-5 flex items-center justify-center ${
-          checkered && "bg-base-300"
+          checkered ? "bg-[#3D0E6F]" : "bg-[#4F0B97]"
         }`}
       >
         {isGameOver && isSnakeHead && (
