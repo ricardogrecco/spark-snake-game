@@ -31,13 +31,13 @@ export default function MainGame() {
     <div className="bg-gradient-to-br from-[#690FA6] to-[#A60E7E] h-screen flex flex-col items-center justify-center gap-5 p-10 xl:p-16 ">
       <section className="scale-90 md:scale-125 lg:scale-75 xl:scale-100 nest-hub:board nest-hub-max:board">
         {/* Score & Timer & Volume */}
-        <div className="flex flex-row justify-between items-center w-full mb-10 lg:mb-24 scale-110 lg:scale-150">
+        <div className="flex flex-row justify-between items-center w-full mb-10 lg:mb-28 scale-110 lg:scale-150">
           <div className="flex items-center flex-row gap-2">
-            <Fruit className="w-10 h-10" alt="Fruit Score" />
-            <span className="inline-block text-2xl font-bold">{score}</span>
+            <Fruit className="w-8 h-8" alt="Fruit Score" />
+            <span className="inline-block text-3xl font-bold">{score}</span>
           </div>
           <span
-            className={`text-2xl font-bold ${
+            className={`text-3xl font-bold ${
               timer / 1000 <= 10 && "text-warning"
             } ${
               !gameOver && timer / 1000 <= 10 && "animate-bounce duration-1000"
@@ -47,9 +47,9 @@ export default function MainGame() {
           </span>
           <button onClick={() => setMuteSounds((sounds) => !sounds)}>
             {muteSounds ? (
-              <MdVolumeOff className="w-10 h-10" />
+              <MdVolumeOff className="w-8 h-8" />
             ) : (
-              <MdVolumeUp className="w-10 h-10" />
+              <MdVolumeUp className="w-8 h-8" />
             )}
           </button>
         </div>
