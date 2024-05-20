@@ -28,7 +28,7 @@ const config: Config = {
     themes: [
       {
         maintheme: {
-          primary: "#D5258F",
+          primary: "#5A12AA",
           secondary: "#ffffff",
           accent: "#b3d135",
           neutral: "#f0f6fb",
