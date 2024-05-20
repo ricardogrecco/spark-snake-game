@@ -24,12 +24,16 @@ const config: Config = {
       },
       boxShadow: {
         neon: "0 0 7px #20FECB, 0 0 7px #20FECB, 0 0 7px #20FECB, 0 0 7px #20FECB",
+        neonpink:
+          "0 0 7px #FB26FF, 0 0 7px #FB26FF, 0 0 7px #FB26FF, 0 0 7px #FB26FF",
       },
       ringColor: {
         neon: "#20FECB",
+        neonpink: "#FB26FF",
       },
       ringOffsetColor: {
         neon: "#20FECB",
+        neonpink: "#FB26FF",
       },
       ringOffsetWidth: {
         "3": "3px",
