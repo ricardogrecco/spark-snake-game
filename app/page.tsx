@@ -40,7 +40,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/tutorial"
-                  className="btn btn-lg btn-secondary max-w-lg w-full font-bold"
+                  className="btn btn-lg btn-info max-w-lg w-full font-bold"
                 >
                   How to Play
                 </Link>
