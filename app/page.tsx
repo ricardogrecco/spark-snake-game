@@ -9,7 +9,7 @@ export default function Home() {
     <Drawer>
       <div className="flex flex-col items-center justify-center bg-base-300">
         <MobileLayout>
-          <main className="bg-gradient-to-br from-[#7A40C5] to-[#55239E] min-h-screen w-full flex flex-col items-center p-10">
+          <main className="bg-gradient-to-br from-[#690FA6] to-[#A60E7E] min-h-screen w-full flex flex-col items-center p-10">
             <label
               htmlFor="side-drawer"
               className="btn btn-ghost drawer-button self-end fixed -m-5"
