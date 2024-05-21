@@ -4,7 +4,10 @@ type FooterProps = HTMLAttributes<HTMLElement>;
 
 export default function Footer({ ...props }: FooterProps) {
   return (
-    <footer className="p-2 w-full text-xs lg:text-sm mt-5 lg:mt-0" {...props}>
+    <footer
+      className="w-full font-medium text-xs md:text-sm mt-5 lg:mt-0"
+      {...props}
+    >
       <ul className="flex flex-row items-center w-full justify-center text-center">
         <li className="footer-item">
           <a

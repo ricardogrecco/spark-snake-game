@@ -28,17 +28,21 @@ export default function MainGame() {
   useSnakeIntervalEffect(moveSnake);
 
   return (
-    <div className="bg-gradient-to-br from-[#5A12AA]  to-[#290057] h-screen flex flex-col items-center justify-center gap-5 p-10 xl:p-16 ">
+    <div className="bg-gradient-to-br from-[#690FA6] to-[#A60E7E] h-screen flex flex-col items-center justify-center gap-5 p-10 xl:p-16 ">
       <section className="scale-90 md:scale-125 lg:scale-75 xl:scale-100 nest-hub:board nest-hub-max:board">
         {/* Score & Timer & Volume */}
         <div className="flex flex-row justify-between items-center w-full mb-10 lg:mb-24 scale-110 lg:scale-150">
           <div className="flex items-center flex-row gap-2">
-            <Fruit className="w-10 h-10" alt="Fruit Score" />
-            <span className="inline-block text-2xl font-bold">{score}</span>
+            <Fruit className="w-8 h-8 filter-glow" alt="Fruit Score" />
+            <span className="inline-block text-3xl font-bold text-glow">
+              {score}
+            </span>
           </div>
           <span
-            className={`text-2xl font-bold ${
-              timer / 1000 <= 10 && "text-warning"
+            className={`text-3xl font-bold ${
+              timer / 1000 <= 10
+                ? "text-warning text-glow-warning"
+                : "text-glow"
             } ${
               !gameOver && timer / 1000 <= 10 && "animate-bounce duration-1000"
             }`}
@@ -47,16 +51,15 @@ export default function MainGame() {
           </span>
           <button onClick={() => setMuteSounds((sounds) => !sounds)}>
             {muteSounds ? (
-              <MdVolumeOff className="w-10 h-10" />
+              <MdVolumeOff className="w-8 h-8 filter-glow" />
             ) : (
-              <MdVolumeUp className="w-10 h-10" />
+              <MdVolumeUp className="w-8 h-8 filter-glow" />
             )}
           </button>
         </div>
-        {/* ////// */}
         <Board snake={snake} fruit={fruit} isGameOver={gameOver} />
       </section>
-      <section className="scale-110 mt-10 mb-12 md:scale-125 md:mt-24 lg:scale-110 lg:-mt-10 xl:scale-150 xl:mt-10 nest-hub:keys nest-hub-max:keys">
+      <section className="scale-110 mb-12 md:scale-150 md:mt-24 lg:-mt-10 xl:scale-170 xl:mt-10 nest-hub:keys nest-hub-max:keys">
         <ArrowKeys disabled={false} />
       </section>
     </div>

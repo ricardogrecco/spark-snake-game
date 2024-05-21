@@ -1,5 +1,5 @@
 import { useCallback, useContext } from "react";
-import { BOARD_SIZE } from "../utils/constants";
+import { BOARD_COLUMNS, BOARD_ROWS } from "../utils/constants";
 import { generateFruit } from "../helpers/generateFruit";
 import { GameContext } from "../context/GameContext";
 
@@ -50,9 +50,9 @@ const useMoveSnakeCallback = () => {
       // Check if the snake is outside the board
       if (
         head.x < 0 ||
-        head.x >= BOARD_SIZE ||
+        head.x >= BOARD_COLUMNS ||
         head.y < 0 ||
-        head.y >= BOARD_SIZE
+        head.y >= BOARD_ROWS
       ) {
         if (snakeInterval.current) clearInterval(snakeInterval.current);
         setGameOver(true);
