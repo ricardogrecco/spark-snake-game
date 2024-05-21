@@ -34,13 +34,13 @@ export default function Home() {
               <div className="space-y-4">
                 <Link
                   href="/game"
-                  className="btn btn-lg btn-primary max-w-lg w-full font-bold"
+                  className="btn btn-lg btn-primary max-w-lg w-full"
                 >
-                  Play Now
+                  Play now
                 </Link>
                 <Link
                   href="/tutorial"
-                  className="btn btn-lg btn-info max-w-lg w-full font-bold text-primary"
+                  className="btn btn-lg btn-info max-w-lg w-full text-primary"
                 >
                   How to Play
                 </Link>
