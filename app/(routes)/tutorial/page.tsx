@@ -34,7 +34,9 @@ export default function TutorialPage() {
           Got a unique code? Get at least {MIN_SPARKS} sparks then enter your
           code and details to go in the draw.
         </p>
-        <ArrowKeys />
+        <div className="scale-75 flex flex-row justify-center items-center -my-8">
+          <ArrowKeys />
+        </div>
         <p>
           Tap the arrows to move around the board. Don’t hit the edges and don’t
           hit your tail.
