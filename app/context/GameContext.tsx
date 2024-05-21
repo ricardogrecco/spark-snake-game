@@ -3,7 +3,8 @@
 import { createContext, useEffect, useRef, useState } from "react";
 import { FruitProps, SnakeDirection, SnakeProps } from "../types";
 import {
-  BOARD_SIZE,
+  BOARD_COLUMNS,
+  BOARD_ROWS,
   SNAKE_SPEED,
   SNAKE_SPEED_INCREMENT,
   TIMER,
@@ -88,15 +89,15 @@ export default function GameProvider({
   const snakeInterval = useRef<NodeJS.Timeout | null>(null);
   const [snake, setSnake] = useState<SnakeProps[]>([
     {
-      x: Math.floor(BOARD_SIZE / 2),
-      y: Math.floor(BOARD_SIZE / 2),
+      x: Math.floor(BOARD_ROWS / 2),
+      y: Math.floor(BOARD_COLUMNS / 2),
       direction: "RIGHT",
     },
   ]);
   const [fruit, setFruit] = useState<FruitProps>(
     generateFruit(snake, {
-      x: Math.floor(BOARD_SIZE / 2),
-      y: Math.floor(BOARD_SIZE / 2),
+      x: Math.floor(BOARD_ROWS / 2),
+      y: Math.floor(BOARD_COLUMNS / 2),
     })
   );
   const [score, setScore] = useState<number>(0);
@@ -129,8 +130,8 @@ export default function GameProvider({
 
       setSnake([
         {
-          x: Math.floor(BOARD_SIZE / 2),
-          y: Math.floor(BOARD_SIZE / 2),
+          x: Math.floor(BOARD_COLUMNS / 2),
+          y: Math.floor(BOARD_ROWS / 2),
           direction: "RIGHT",
         },
       ]);

@@ -33,7 +33,7 @@ export default function GameOverModal() {
         <h1 className="text-9xl font-bold ">{score}</h1>
         <div className="w-full flex flex-col items-center gap-3">
           {score >= MIN_SPARKS && (
-            <a className="btn btn-lg btn-primary text-2xl w-full" href="#">
+            <a className="btn btn-lg btn-secondary text-2xl w-full" href="#">
               Submit
             </a>
           )}
@@ -43,7 +43,7 @@ export default function GameOverModal() {
             </p>
           )}
           <button
-            className="btn btn-lg btn-secondary text-2xl w-full"
+            className="btn btn-lg btn-info text-2xl w-full text-primary"
             onClick={() => {
               handleModalClose();
               setGameOver(false);

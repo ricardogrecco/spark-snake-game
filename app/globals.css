@@ -134,3 +134,15 @@ h1 {
 *::-webkit-scrollbar {
   display: none;
 }
+
+.text-glow {
+  text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 1px #fff, 0 0 15px #fff;
+}
+
+.text-glow-warning {
+  text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 1px #fff, 0 0 15px #ff9c28;
+}
+
+.filter-glow {
+  filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 10px #fff);
+}

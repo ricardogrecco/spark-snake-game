@@ -9,7 +9,7 @@ export default function Home() {
     <Drawer>
       <div className="flex flex-col items-center justify-center bg-base-300">
         <MobileLayout>
-          <main className="bg-gradient-to-br from-[#7A40C5] to-[#55239E] min-h-screen w-full flex flex-col items-center p-10">
+          <main className="bg-gradient-to-br from-[#690FA6] to-[#A60E7E] min-h-screen w-full flex flex-col items-center p-10">
             <label
               htmlFor="side-drawer"
               className="btn btn-ghost drawer-button self-end fixed -m-5"
@@ -21,7 +21,7 @@ export default function Home() {
               alt="Sparks Logo"
               className="w-32 md:w-56 lg:w-48 xl:w-56"
             />
-            <div className="text-center font-medium flex-grow max-w-sm flex flex-col justify-center gap-5 lg:gap-2 xl:gap-10 py-10">
+            <div className="text-center font-semibold flex-grow max-w-sm flex flex-col justify-center gap-5 lg:gap-2 xl:gap-10 py-8">
               <h1 className="font-bold text-4xl xl:text-5xl">Game Heading</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -40,14 +40,13 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/tutorial"
-                  className="btn btn-lg btn-secondary max-w-lg w-full font-bold"
+                  className="btn btn-lg btn-info max-w-lg w-full font-bold text-primary"
                 >
                   How to Play
                 </Link>
               </div>
+              <Footer />
             </div>
-
-            <Footer />
           </main>
         </MobileLayout>
       </div>

@@ -18,13 +18,18 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="w-max bg-base-100 h-full p-10 flex flex-col gap-5">
+        <div className="w-max md:w-full md:max-w-md lg:max-w-lg bg-base-100 h-full p-10 flex flex-col gap-5">
+          <img
+            src="/assets/bg/sidemenu-bg.webp"
+            alt="Side Menu Background"
+            className="absolute inset-0 w-full h-full object-cover -z-10 mix-blend-luminosity"
+          />
           <div className="w-full flex-grow flex justify-end">
             <label
-              className="btn btn-circle bg-[#772bcb]"
+              className="btn btn-circle bg-[#5A12AA] border-none -mr-5"
               htmlFor="side-drawer"
             >
-              <IoMdClose className="w-5 h-5" />
+              <IoMdClose className="w-8 h-8" />
             </label>
           </div>
           <ul className="space-y-2 lg:space-y-5 text-2xl lg:text-4xl font-bold">
@@ -54,7 +59,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
               )}
             </li>
           </ul>
-          <Footer className="flex flex-row w-full justify-center gap-5 text-xs" />
+          <Footer className="flex flex-row w-max font-medium justify-start gap-5 text-sm lg:text-lg" />
         </div>
       </div>
     </div>
