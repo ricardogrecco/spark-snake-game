@@ -42,12 +42,12 @@ export default function TutorialPage() {
           hit your tail.
         </p>
         <p>Good luck!</p>
-        <div>
+        <div className="-mb-5 lg:-mb-0">
           <Link
             href="/game"
-            className="btn lg:btn-lg btn-primary max-w-lg w-full font-bold text-lg"
+            className="btn btn-lg btn-primary max-w-lg w-full text-lg"
           >
-            Play Now
+            Play now
           </Link>
         </div>
         <Footer />
