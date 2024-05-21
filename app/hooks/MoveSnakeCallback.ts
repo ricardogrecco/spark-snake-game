@@ -16,10 +16,11 @@ const useMoveSnakeCallback = () => {
     setGameOver,
     setScore,
     soundEat,
+    loading,
   } = useContext(GameContext);
 
   return useCallback(() => {
-    if (gameOver) {
+    if (gameOver || loading) {
       if (snakeInterval.current) clearInterval(snakeInterval.current);
       return;
     }
