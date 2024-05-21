@@ -20,7 +20,7 @@ export default function TutorialPage() {
         </label>
       </div>
 
-      <div className="flex-grow font-medium flex flex-col gap-5 text-center mt-5 max-w-sm lg:max-w-screen-lg xl:max-w-sm">
+      <div className="flex-grow font-semibold flex flex-col gap-5 text-center justify-center mt-5 max-w-sm lg:max-w-screen-lg xl:max-w-sm">
         <h1>How To Play</h1>
         <p>
           Collect as many sparks{" "}
