@@ -59,7 +59,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
               )}
             </li>
           </ul>
-          <Footer className="flex flex-row w-full justify-center gap-5 text-xs" />
+          <Footer className="flex flex-row w-max justify-start gap-5 text-sm lg:text-lg" />
         </div>
       </div>
     </div>
