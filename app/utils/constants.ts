@@ -2,7 +2,9 @@
 export const MIN_SPARKS = 10;
 
 // BOARD_SIZE
-export const BOARD_SIZE = 15;
+export const BOARD_SIZE = 15; // For both X & Y
+export const BOARD_ROWS = 8;
+export const BOARD_COLUMNS = 7;
 
 // TIMER (IN SECONDS)
 export const TIMER = 60;
