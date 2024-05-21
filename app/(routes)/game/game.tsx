@@ -40,7 +40,9 @@ export default function MainGame() {
           </div>
           <span
             className={`text-3xl font-bold ${
-              timer / 1000 <= 10 ? "text-warning text-glow-warning" : "text-glow"
+              timer / 1000 <= 10
+                ? "text-warning text-glow-warning"
+                : "text-glow"
             } ${
               !gameOver && timer / 1000 <= 10 && "animate-bounce duration-1000"
             }`}
@@ -55,10 +57,9 @@ export default function MainGame() {
             )}
           </button>
         </div>
-        {/* ////// */}
         <Board snake={snake} fruit={fruit} isGameOver={gameOver} />
       </section>
-      <section className="scale-110 mt-10 mb-12 md:scale-125 md:mt-24 lg:scale-110 lg:-mt-10 xl:scale-150 xl:mt-10 nest-hub:keys nest-hub-max:keys">
+      <section className="scale-110 mb-12 md:scale-150 md:mt-24 lg:-mt-10 xl:scale-170 xl:mt-10 nest-hub:keys nest-hub-max:keys">
         <ArrowKeys disabled={false} />
       </section>
     </div>
