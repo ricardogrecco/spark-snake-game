@@ -3,10 +3,11 @@ import { SNAKE_SPEED, SNAKE_SPEED_INCREMENT } from "../utils/constants";
 import { GameContext } from "../context/GameContext";
 
 export const useKeyboardDirectionEffect = () => {
-  const { snake, setDirection, gameOver, tailLength, soundMove } =
+  const { snake, setDirection, gameOver, tailLength, soundMove, loading } =
     useContext(GameContext);
 
   useEffect(() => {
+    if (loading) return;
     let isMoving = false;
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -51,5 +52,5 @@ export const useKeyboardDirectionEffect = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [snake, setDirection, gameOver]);
+  }, [snake, setDirection, gameOver, loading]);
 };

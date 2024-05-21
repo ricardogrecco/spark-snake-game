@@ -45,6 +45,8 @@ type GameContextType = {
   soundEat: () => void;
   soundMove: () => void;
   soundGameOver: () => void;
+  // Loading
+  loading: boolean;
 };
 
 export const GameContext = createContext<GameContextType>({
@@ -77,6 +79,8 @@ export const GameContext = createContext<GameContextType>({
   soundEat: () => {},
   soundMove: () => {},
   soundGameOver: () => {},
+  // Loading
+  loading: false,
 });
 
 export default function GameProvider({
@@ -106,6 +110,8 @@ export default function GameProvider({
   const [timer, setTimer] = useState<number>(1000 * TIMER);
   const timerInterval = useRef<NodeJS.Timeout | null>(null);
 
+  const [loading, setLoading] = useState(true);
+
   const moveSnake = useMoveSnakeCallback();
 
   // SOUNDS
@@ -121,6 +127,18 @@ export default function GameProvider({
   });
 
   useEffect(() => {
+    if (document.readyState === "complete") {
+      console.log(document.readyState);
+      setLoading(false);
+    } else {
+      window.onload = () => {
+        setLoading(false);
+      };
+    }
+  }, []);
+
+  useEffect(() => {
+    if (loading) return;
     if (gameOver) {
       if (timerInterval.current) clearInterval(timerInterval.current);
       if (snakeInterval.current) clearInterval(snakeInterval.current);
@@ -165,7 +183,7 @@ export default function GameProvider({
       if (timerInterval.current) clearInterval(timerInterval.current);
       if (snakeInterval.current) clearInterval(snakeInterval.current);
     };
-  }, [gameOver]);
+  }, [gameOver, loading]);
 
   return (
     <GameContext.Provider
@@ -201,6 +219,8 @@ export default function GameProvider({
           soundEat,
           soundMove,
           soundGameOver,
+          // Loading
+          loading,
         } as GameContextType
       }
     >

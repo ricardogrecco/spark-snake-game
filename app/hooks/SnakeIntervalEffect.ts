@@ -3,10 +3,11 @@ import { SNAKE_SPEED, SNAKE_SPEED_INCREMENT } from "../utils/constants";
 import { GameContext } from "../context/GameContext";
 
 export const useSnakeIntervalEffect = (moveSnake: () => void) => {
-  const { tailLength, snakeInterval, gameOver } = useContext(GameContext);
+  const { tailLength, snakeInterval, gameOver, loading } =
+    useContext(GameContext);
 
   useEffect(() => {
-    if (gameOver) {
+    if (gameOver || loading) {
       if (snakeInterval.current) {
         clearInterval(snakeInterval.current);
       }
