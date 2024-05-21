@@ -31,7 +31,7 @@ const Cell = React.memo(
     checkered = false,
     isGameOver = false,
   }: CellProps) => {
-    const snakeHeadDirectionClass = `w-9 h-9 absolute 
+    const snakeHeadDirectionClass = `size-14 absolute 
               ${
                 direction === "UP"
                   ? "transform -rotate-90"
@@ -45,7 +45,7 @@ const Cell = React.memo(
 
     return (
       <div
-        className={`w-5 h-5 flex items-center justify-center ${
+        className={`size-10 flex items-center justify-center ${
           checkered ? "bg-[#3D0E6F]" : "bg-[#4F0B97]"
         }`}
       >
@@ -63,7 +63,7 @@ const Cell = React.memo(
           >
             <CRASH
               alt="Crash"
-              className={`w-10 h-10 animate-crashFade
+              className={`size-20 animate-crashFade
             `}
             />
           </span>
@@ -85,10 +85,10 @@ const Cell = React.memo(
         )}
 
         {isSnakeBody && (
-          <SNAKE_BODY alt="Snake Body" className="absolute w-5 h-5" />
+          <SNAKE_BODY alt="Snake Body" className="absolute size-8" />
         )}
 
-        {isFruit && <FRUIT alt="Fruit" className="absolute w-5 h-5" />}
+        {isFruit && <FRUIT alt="Fruit" className="absolute size-7" />}
       </div>
     );
   }
