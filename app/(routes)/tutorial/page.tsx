@@ -45,7 +45,7 @@ export default function TutorialPage() {
         <div className="-mb-5 lg:-mb-0">
           <Link
             href="/game"
-            className="btn btn-lg btn-primary max-w-lg w-full text-lg"
+            className="btn btn-lg btn-primary max-w-lg w-full text-lg outline-none"
           >
             Play now
           </Link>

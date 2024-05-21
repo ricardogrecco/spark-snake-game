@@ -43,7 +43,7 @@ export default function GameOverModal() {
             </p>
           )}
           <button
-            className="btn btn-lg btn-info text-2xl w-full text-primary"
+            className="btn btn-lg btn-info text-2xl w-full text-primary outline-none"
             onClick={() => {
               handleModalClose();
               setGameOver(false);
