@@ -45,9 +45,8 @@ export default function Home() {
                   How to Play
                 </Link>
               </div>
+              <Footer />
             </div>
-
-            <Footer />
           </main>
         </MobileLayout>
       </div>
