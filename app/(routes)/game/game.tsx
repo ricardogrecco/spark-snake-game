@@ -29,9 +29,9 @@ export default function MainGame() {
 
   return (
     <div className="bg-gradient-to-br from-[#690FA6] to-[#A60E7E] h-screen flex flex-col items-center justify-center gap-5 p-10 xl:p-16 ">
-      <section className="scale-90 md:scale-125 lg:scale-75 xl:scale-100 nest-hub:board nest-hub-max:board">
+      <section className="scale-90 sm:scale-120 lg:scale-100 nest-hub:board">
         {/* Score & Timer & Volume */}
-        <div className="flex flex-row justify-between items-center w-full mb-10 lg:mb-24 scale-110 lg:scale-150">
+        <div className="flex flex-row justify-between items-center w-full scale-110 mb-10 lg:mb-28  lg:scale-150 ">
           <div className="flex items-center flex-row gap-2">
             <Fruit className="w-8 h-8 filter-glow" alt="Fruit Score" />
             <span className="inline-block text-3xl font-bold text-glow">
@@ -59,7 +59,7 @@ export default function MainGame() {
         </div>
         <Board snake={snake} fruit={fruit} isGameOver={gameOver} />
       </section>
-      <section className="scale-110 mb-12 md:scale-150 md:mt-24 lg:-mt-10 xl:scale-170 xl:mt-10 nest-hub:keys nest-hub-max:keys">
+      <section className="scale-110 mb-12 sm:scale-150 sm:mt-24 lg:scale-170 lg:mt-10 nest-hub:keys">
         <ArrowKeys disabled={false} />
       </section>
     </div>
