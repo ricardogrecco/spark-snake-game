@@ -88,7 +88,9 @@ const Cell = React.memo(
           <SNAKE_BODY alt="Snake Body" className="absolute size-8" />
         )}
 
-        {isFruit && <FRUIT alt="Fruit" className="absolute size-7" />}
+        {isFruit && (
+          <FRUIT alt="Fruit" className="absolute size-7 filter-glow" />
+        )}
       </div>
     );
   }
