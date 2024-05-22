@@ -19,11 +19,6 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
           className="drawer-overlay"
         ></label>
         <div className="w-max md:w-full md:max-w-md lg:max-w-lg bg-base-100 h-full p-10 flex flex-col gap-5">
-          <img
-            src="/assets/bg/sidemenu-bg.webp"
-            alt="Side Menu Background"
-            className="absolute inset-0 w-full h-full object-cover -z-10 mix-blend-luminosity"
-          />
           <div className="w-full flex-grow flex justify-end">
             <label
               className="btn btn-circle bg-[#5A12AA] border-none -mr-5"
