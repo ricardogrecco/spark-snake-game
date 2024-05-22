@@ -10,6 +10,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        "key-glow": "key-glow 2s ease-in-out infinite",
+      },
+      keyframes: {
+        "key-glow": {
+          "0%, 100%": {
+            boxShadow:
+              "0 0 10px #20FECB, 0 0 20px #20FECB, 0 0 30px #20FECB, 0 0 40px #20FECB",
+          },
+          "50%": {
+            boxShadow:
+              "0 0 20px #20FECB, 0 0 30px #20FECB, 0 0 40px #20FECB, 0 0 40px #20FECB, 0 0 60px #20FECB",
+          },
+        },
+      },
       scale: {
         "60": ".6",
         "70": ".7",
