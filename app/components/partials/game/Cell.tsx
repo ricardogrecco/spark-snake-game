@@ -31,7 +31,7 @@ const Cell = React.memo(
     checkered = false,
     isGameOver = false,
   }: CellProps) => {
-    const snakeHeadDirectionClass = `size-14 absolute 
+    const snakeHeadDirectionClass = `size-14 filter-snake-glow absolute 
               ${
                 direction === "UP"
                   ? "transform -rotate-90"
