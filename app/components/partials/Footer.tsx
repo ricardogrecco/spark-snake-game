@@ -26,7 +26,7 @@ export default function Footer({ ...props }: FooterProps) {
           </a>
         </li>
         <li className="footer-item">
-          <a href="#">Terms of Use</a>
+          <a href="https://www.spark.co.nz/help/other/terms">Terms of Use</a>
         </li>
       </ul>
     </footer>
