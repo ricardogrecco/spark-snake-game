@@ -1,4 +1,4 @@
-export type SnakeDirection = "UP" | "DOWN" | "LEFT" | "RIGHT";
+export type SnakeDirection = "UP" | "DOWN" | "LEFT" | "RIGHT" | "NONE";
 
 export type SnakeProps = {
   x: number;
