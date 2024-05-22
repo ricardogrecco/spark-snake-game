@@ -6,6 +6,7 @@ import { GameContext } from "../context/GameContext";
 const useMoveSnakeCallback = () => {
   const {
     direction,
+    snake,
     setSnake,
     tailLength,
     setTailLength,
@@ -17,6 +18,7 @@ const useMoveSnakeCallback = () => {
     setScore,
     soundEat,
     loading,
+    playState,
   } = useContext(GameContext);
 
   return useCallback(() => {
@@ -29,22 +31,22 @@ const useMoveSnakeCallback = () => {
       const newSnake = [...prevSnake];
       const head = { ...newSnake[0] };
 
-      switch (direction) {
+      switch (direction.current) {
         case "UP":
           head.y -= 1;
-          head.direction = "UP";
+          head.direction = direction.current;
           break;
         case "RIGHT":
           head.x += 1;
-          head.direction = "RIGHT";
+          head.direction = direction.current;
           break;
         case "DOWN":
           head.y += 1;
-          head.direction = "DOWN";
+          head.direction = direction.current;
           break;
         case "LEFT":
           head.x -= 1;
-          head.direction = "LEFT";
+          head.direction = direction.current;
           break;
       }
 
@@ -82,7 +84,8 @@ const useMoveSnakeCallback = () => {
       return newSnake;
     });
   }, [
-    direction,
+    direction.current,
+    snake,
     tailLength,
     gameOver,
     setSnake,
@@ -92,6 +95,7 @@ const useMoveSnakeCallback = () => {
     setScore,
     setGameOver,
     snakeInterval,
+    playState,
   ]);
 };
 
