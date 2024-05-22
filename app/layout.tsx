@@ -12,7 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="maintheme">
-      <body>{children}</body>
+      <body className="text-[#fff]">{children}</body>
     </html>
   );
 }
