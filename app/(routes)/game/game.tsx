@@ -18,8 +18,16 @@ const Board = dynamic(() => import("@/app/components/partials/game/Board"), {
 });
 
 export default function MainGame() {
-  const { snake, fruit, score, gameOver, timer, muteSounds, setMuteSounds } =
-    useContext(GameContext);
+  const {
+    snake,
+    fruit,
+    score,
+    gameOver,
+    timer,
+    muteSounds,
+    setMuteSounds,
+    playState,
+  } = useContext(GameContext);
 
   useKeyboardDirectionEffect();
 
@@ -60,7 +68,10 @@ export default function MainGame() {
         <Board snake={snake} fruit={fruit} isGameOver={gameOver} />
       </section>
       <section className="scale-110 mb-12 sm:scale-150 sm:mt-24 lg:scale-170 lg:mt-10 nest-hub:keys">
-        <ArrowKeys disabled={false} />
+        <ArrowKeys
+          disabled={false}
+          playState={!playState ? gameOver : playState}
+        />
       </section>
     </div>
   );
