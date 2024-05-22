@@ -34,7 +34,7 @@ export default function Home() {
               <div className="space-y-4">
                 <Link
                   href="/game"
-                  className="btn btn-lg btn-primary max-w-lg w-full outline-none"
+                  className="btn btn-lg btn-primary max-w-lg w-full outline-none text-[#fff]"
                 >
                   Play now
                 </Link>

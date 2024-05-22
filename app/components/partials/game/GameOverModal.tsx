@@ -31,7 +31,7 @@ export default function GameOverModal() {
       <div className="modal-box bg-[#772BCB] max-w-sm flex flex-col items-center justify-evenly gap-10 p-10">
         <h2 className="text-4xl font-bold">Your Score</h2>
         <h1 className="text-9xl font-bold ">{score}</h1>
-        <div className="w-full flex flex-col items-center gap-3">
+        <div className="w-full flex flex-col items-center gap-3 outline-none text-[#fff]">
           {score >= MIN_SPARKS && (
             <a className="btn btn-lg btn-secondary text-2xl w-full" href="#">
               Submit
