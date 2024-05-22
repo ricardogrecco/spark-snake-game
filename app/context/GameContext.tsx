@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useMemo, useRef, useState } from "react";
 import { FruitProps, SnakeDirection, SnakeProps } from "../types";
 import {
   BOARD_COLUMNS,
@@ -17,8 +17,7 @@ import useSound from "use-sound";
 
 type GameContextType = {
   // Direction
-  direction: SnakeDirection;
-  setDirection: React.Dispatch<React.SetStateAction<SnakeDirection>>;
+  direction: React.MutableRefObject<SnakeDirection>;
   // Tail Length
   tailLength: number;
   setTailLength: React.Dispatch<React.SetStateAction<number>>;
@@ -47,12 +46,16 @@ type GameContextType = {
   soundGameOver: () => void;
   // Loading
   loading: boolean;
+  // Play State
+  playState: boolean;
+  setPlayState: React.Dispatch<React.SetStateAction<boolean>>;
+  // Move Snake
+  moveSnake: () => void;
 };
 
 export const GameContext = createContext<GameContextType>({
   // Direction
-  direction: "RIGHT",
-  setDirection: () => {},
+  direction: { current: "RIGHT" },
   // Tail Length
   tailLength: 1,
   setTailLength: () => {},
@@ -81,6 +84,11 @@ export const GameContext = createContext<GameContextType>({
   soundGameOver: () => {},
   // Loading
   loading: false,
+  // Play State
+  playState: false,
+  setPlayState: () => {},
+  // Move Snake
+  moveSnake: () => {},
 });
 
 export default function GameProvider({
@@ -88,30 +96,44 @@ export default function GameProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [direction, setDirection] = useState<SnakeDirection>("RIGHT");
+  // DIRECTION
+  const direction = useRef<SnakeDirection>("NONE");
+
   const [tailLength, setTailLength] = useState(1);
   const snakeInterval = useRef<NodeJS.Timeout | null>(null);
   const [snake, setSnake] = useState<SnakeProps[]>([
     {
       x: Math.floor(BOARD_ROWS / 2),
       y: Math.floor(BOARD_COLUMNS / 2),
-      direction: "RIGHT",
+      direction: "NONE",
     },
   ]);
+
+  // FRUIT
   const [fruit, setFruit] = useState<FruitProps>(
     generateFruit(snake, {
       x: Math.floor(BOARD_ROWS / 2),
       y: Math.floor(BOARD_COLUMNS / 2),
     })
   );
+
+  // SCORE
   const [score, setScore] = useState<number>(0);
+
+  // PLAY STATE
+  const [playState, setPlayState] = useState<boolean>(false);
+
+  // GAME OVER STATE
   const [gameOver, setGameOver] = useState<boolean>(false);
 
+  // TIMER
   const [timer, setTimer] = useState<number>(1000 * TIMER);
   const timerInterval = useRef<NodeJS.Timeout | null>(null);
 
+  // LOADING
   const [loading, setLoading] = useState(true);
 
+  // MOVE SNAKE CALLBACK
   const moveSnake = useMoveSnakeCallback();
 
   // SOUNDS
@@ -128,7 +150,6 @@ export default function GameProvider({
 
   useEffect(() => {
     if (document.readyState === "complete") {
-      console.log(document.readyState);
       setLoading(false);
     } else {
       window.onload = () => {
@@ -139,9 +160,14 @@ export default function GameProvider({
 
   useEffect(() => {
     if (loading) return;
+
+    !playState && !gameOver && setTimer(1000 * TIMER);
+
     if (gameOver) {
       if (timerInterval.current) clearInterval(timerInterval.current);
       if (snakeInterval.current) clearInterval(snakeInterval.current);
+      setPlayState(false);
+      direction.current = "NONE";
       soundGameOver();
     } else {
       if (snakeInterval.current) clearInterval(snakeInterval.current);
@@ -150,13 +176,11 @@ export default function GameProvider({
         {
           x: Math.floor(BOARD_COLUMNS / 2),
           y: Math.floor(BOARD_ROWS / 2),
-          direction: "RIGHT",
+          direction: "NONE",
         },
       ]);
 
       setTailLength(1);
-
-      setFruit(generateFruit(snake, fruit));
 
       setScore(0);
 
@@ -165,66 +189,93 @@ export default function GameProvider({
         SNAKE_SPEED - Math.sqrt(tailLength) * SNAKE_SPEED_INCREMENT
       );
 
-      setTimer(1000 * TIMER);
-      timerInterval.current = setInterval(() => {
-        setTimer((prevTimer) => {
-          if (prevTimer <= 0) {
-            clearInterval(timerInterval.current!);
-            setGameOver(true);
-            return 0;
-          }
+      if (playState) {
+        timerInterval.current = setInterval(() => {
+          setTimer((prevTimer) => {
+            if (prevTimer <= 0) {
+              clearInterval(timerInterval.current!);
+              setGameOver(true);
+              return 0;
+            }
 
-          return prevTimer - 1000;
-        });
-      }, 1000);
+            return prevTimer - 1000;
+          });
+        }, 1000);
+      }
     }
 
     return () => {
       if (timerInterval.current) clearInterval(timerInterval.current);
       if (snakeInterval.current) clearInterval(snakeInterval.current);
     };
-  }, [gameOver, loading]);
+  }, [gameOver, loading, playState]);
+
+  const contextValue = useMemo(
+    () => ({
+      // Snake Direction
+      direction,
+      // Tail Length
+      tailLength,
+      setTailLength,
+      // Snake
+      snake,
+      setSnake,
+      // Fruit
+      fruit,
+      setFruit,
+      // Score
+      score,
+      setScore,
+      // Game Over
+      gameOver,
+      setGameOver,
+      // Intervals
+      snakeInterval,
+      // timer
+      timer,
+      setTimer,
+      timerInterval,
+      // Sounds
+      muteSounds,
+      setMuteSounds,
+      soundEat,
+      soundMove,
+      soundGameOver,
+      // Loading
+      loading,
+      // Play State
+      playState,
+      setPlayState,
+      // Move Snake
+      moveSnake,
+    }),
+    [
+      tailLength,
+      setTailLength,
+      snake,
+      setSnake,
+      fruit,
+      setFruit,
+      score,
+      setScore,
+      gameOver,
+      setGameOver,
+      snakeInterval,
+      timer,
+      setTimer,
+      timerInterval,
+      muteSounds,
+      setMuteSounds,
+      soundEat,
+      soundMove,
+      soundGameOver,
+      loading,
+      playState,
+      setPlayState,
+    ]
+  );
 
   return (
-    <GameContext.Provider
-      value={
-        {
-          // Snake Direction
-          direction,
-          setDirection,
-          // Tail Length
-          tailLength,
-          setTailLength,
-          // Snake
-          snake,
-          setSnake,
-          // Fruit
-          fruit,
-          setFruit,
-          // Score
-          score,
-          setScore,
-          // Game Over
-          gameOver,
-          setGameOver,
-          // Intervals
-          snakeInterval,
-          // timer
-          timer,
-          setTimer,
-          timerInterval,
-          // Sounds
-          muteSounds,
-          setMuteSounds,
-          soundEat,
-          soundMove,
-          soundGameOver,
-          // Loading
-          loading,
-        } as GameContextType
-      }
-    >
-      {children}
-    </GameContext.Provider>
+    <GameContext.Provider value={contextValue}>{children}</GameContext.Provider>
   );
 }
