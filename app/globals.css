@@ -148,5 +148,5 @@ h1 {
 }
 
 .filter-snake-glow {
-  filter: drop-shadow(0 0 5px #a396f6) drop-shadow(0 0 1px #a396f6);
+  filter: drop-shadow(0 0 2px #a396f6) drop-shadow(0 0px 1px #a396f6);
 }
