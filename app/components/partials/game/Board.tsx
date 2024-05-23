@@ -15,7 +15,7 @@ type BoardProps = {
 
 export default function Board({ snake, fruit, isGameOver }: BoardProps) {
   return (
-    <div className="grid rounded-[12px] scale-110 lg:scale-150 lg:my-20 ring-neonpink ring-1 ring-offset-neonpink ring-offset-1 shadow-neonpink p-[5px]">
+    <div className="grid rounded-[12px] scale-110 lg:scale-150 lg:my-20 border-[#EC76FF] border-[0.2rem] shadow-neonpink p-[5px]">
       <div className="overflow-hidden rounded-[7px]">
         {Array.from({ length: BOARD_ROWS }, (_, i) => (
           <div key={i} className="flex">

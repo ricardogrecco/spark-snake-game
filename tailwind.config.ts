@@ -17,11 +17,11 @@ const config: Config = {
         "key-glow": {
           "0%, 100%": {
             boxShadow:
-              "0 0 5px #20FECB, 0 0 5px #20FECB, 0 0 5px #20FECB, 0 0 5px #20FECB",
+              "0 0 0.4rem #09DAAA, 0 0 0.4rem #09DAAA, 0 0 0.4rem #09DAAA, inset 0 0 0.4rem #09DAAA",
           },
           "50%": {
             boxShadow:
-              "0 0 10px #20FECB, 0 0 10px #20FECB, 0 0 10px #20FECB, 0 0 10px #20FECB",
+              "0 0 1rem #09DAAA, 0 0 1rem #09DAAA, 0 0 1rem #09DAAA, inset 0 0 1rem #09DAAA",
           },
         },
       },
@@ -41,9 +41,9 @@ const config: Config = {
         "200": "2",
       },
       boxShadow: {
-        neon: "0 0 7px #20FECB, 0 0 7px #20FECB, 0 0 7px #20FECB, 0 0 7px #20FECB",
+        neon: "0 0 0.4rem #09DAAA, 0 0 0.4rem #09DAAA, 0 0 0.4rem #09DAAA, inset 0 0 0.4rem #09DAAA",
         neonpink:
-          "0 0 7px #EC76FF, 0 0 7px #EC76FF, 0 0 7px #EC76FF, 0 0 10px #EC76FF",
+          "0 0 1rem #FB26FF, 0 0 1rem #FB26FF, 0 0 1rem #FB26FF, inset 0 0 5rem #FB26FF",
       },
       ringColor: {
         neon: "#20FECB",
