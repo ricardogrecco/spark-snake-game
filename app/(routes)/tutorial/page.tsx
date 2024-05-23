@@ -28,7 +28,7 @@ export default function TutorialPage() {
           before the timer runs out.{" "}
         </p>
         <div className="-my-3">
-          <img src="assets/TutorialSnake.svg" className="inline w-48 lg:w-52" />
+          <img src="assets/TutorialSnake.png" className="inline w-48 lg:w-52" />
         </div>
         <p>
           Got a unique code? Get at least {MIN_SPARKS} sparks then enter your
