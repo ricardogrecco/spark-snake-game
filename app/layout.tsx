@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Snake Game - Spark NZ",
+  title: "Spark Chaser - Spark NZ",
 };
 
 export default function RootLayout({
