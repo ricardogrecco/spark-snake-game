@@ -23,48 +23,48 @@ export default function ArrowKeys({
   };
 
   return (
-    <section className="w-48 h-48 lg:w-48 lg:h-48 self-center -mb-14">
-      <div className="grid grid-cols-3 grid-rows-3 h-full w-full justify-items-center">
+    <section className="w-48 h-48 self-center -mb-14">
+      <div className="grid grid-cols-3 grid-rows-3 justify-items-center">
         <div className="w-22 h-full"></div>
-        <div className="bg-[#772BCB] w-22 h-full pt-2 px-2 rounded-t-[10px] mt-2">
+        <div className="bg-[#772BCB] w-22 h-full px-2 rounded-t-[10px] mt-2 flex items-center justify-center">
           <button
             onClick={() => dispatchArrowKey("ArrowUp")}
-            className={`bg-[#4D00A0] btn w-22 h-3 p-3 items-center flex justify-center rounded-[5.36px] border-[#20FECB] hover:border-[#20FECB] border-[1px] shadow-neon relative z-10 ${
+            className={`bg-[#4D00A0] btn w-22 h-3 items-center flex justify-center rounded-[5.36px] border-[#20FECB] hover:border-[#20FECB] border-[1px] shadow-neon relative z-10 ${
               !playState && "animate-key-glow"
             }`}
           >
-            <BiSolidUpArrow className="w-full h-full text-[#fff]" />
+            <BiSolidUpArrow className="size-4 scale-125 text-[#fff]" />
           </button>
         </div>
         <div className="w-22 h-full"></div>
-        <div className="bg-[#772BCB] w-22 h-full pl-2 py-2 rounded-l-[10px] ml-2">
+        <div className="bg-[#772BCB] w-22 h-full pl-2 py-2 rounded-l-[10px] ml-2 flex items-center justify-center">
           <button
             onClick={() => dispatchArrowKey("ArrowLeft")}
-            className={`bg-[#4D00A0] btn w-22 h-3 p-3 items-center flex justify-center rounded-[5.36px] border-[#20FECB] hover:border-[#20FECB] border-[1px] shadow-neon relative ${
+            className={`bg-[#4D00A0] btn w-22 h-3 items-center flex justify-center rounded-[5.36px] border-[#20FECB] hover:border-[#20FECB] border-[1px] shadow-neon relative ${
               !playState && "animate-key-glow"
             }`}
           >
-            <BiSolidLeftArrow className="w-full h-full text-[#fff]" />
+            <BiSolidLeftArrow className="size-4 scale-125 text-[#fff]" />
           </button>
         </div>
-        <div className="bg-[#772BCB] w-22 h-full p-2">
+        <div className="bg-[#772BCB] w-22 h-full p-2 flex items-center justify-center">
           <button
             onClick={() => dispatchArrowKey("ArrowDown")}
-            className={`bg-[#4D00A0] btn w-22 h-3 p-3 items-center flex justify-center rounded-[5.36px] border-[#20FECB] hover:border-[#20FECB] border-[1px] shadow-neon relative z-10 ${
+            className={`bg-[#4D00A0] btn w-22 h-3 items-center flex justify-center rounded-[5.36px] border-[#20FECB] hover:border-[#20FECB] border-[1px] shadow-neon relative z-10 ${
               !playState && "animate-key-glow"
             }`}
           >
-            <BiSolidDownArrow className="w-full h-full text-[#fff]" />
+            <BiSolidDownArrow className="size-4 scale-125 text-[#fff]" />
           </button>
         </div>
-        <div className="bg-[#772BCB] w-22 h-full pr-2 py-2 rounded-r-[10px] mr-2">
+        <div className="bg-[#772BCB] w-22 h-full pr-2 py-2 rounded-r-[10px] mr-2 flex items-center justify-center">
           <button
             onClick={() => dispatchArrowKey("ArrowRight")}
-            className={`bg-[#4D00A0] btn w-22 h-3 p-3 items-center flex justify-center rounded-[5.36px] border-[#20FECB] hover:border-[#20FECB] border-[1px] shadow-neon relative ${
+            className={`bg-[#4D00A0] btn w-22 h-3 items-center flex justify-center rounded-[5.36px] border-[#20FECB] hover:border-[#20FECB] border-[1px] shadow-neon relative ${
               !playState && "animate-key-glow"
             }`}
           >
-            <BiSolidRightArrow className="w-full h-full text-[#fff]" />
+            <BiSolidRightArrow className="size-4 scale-125 text-[#fff]" />
           </button>
         </div>
       </div>
