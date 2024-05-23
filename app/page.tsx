@@ -16,12 +16,13 @@ export default function Home() {
             >
               <GiHamburgerMenu className="w-6 h-6" />
             </label>
-            <img
-              src="assets/logo-spark.svg"
-              alt="Sparks Logo"
-              className="w-32 md:w-56 lg:w-48 xl:w-56"
-            />
+
             <div className="text-center font-semibold flex-grow max-w-sm flex flex-col justify-center gap-5 lg:gap-2 xl:gap-10 py-8">
+              <img
+                src="assets/logo-spark.svg"
+                alt="Sparks Logo"
+                className="w-44 md:w-56 lg:w-48 xl:w-56 self-center"
+              />
               <h1 className="font-bold text-4xl xl:text-5xl">Spark Chaser</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
