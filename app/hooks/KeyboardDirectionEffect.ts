@@ -23,12 +23,6 @@ export const useKeyboardDirectionEffect = () => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (gameOver || isMoving.current) return;
 
-      isMoving.current = true;
-
-      if (!playState && !loading) {
-        setPlayState(true);
-      }
-
       switch (event.key) {
         case "ArrowUp":
           if (snake[0].direction === "NONE" || snake[0].direction !== "DOWN") {
@@ -54,6 +48,14 @@ export const useKeyboardDirectionEffect = () => {
             snake[0].direction !== "LEFT" && soundMove();
           }
           break;
+        default:
+          return;
+      }
+
+      isMoving.current = true;
+
+      if (!playState && !loading) {
+        setPlayState(true);
       }
 
       setTimeout(() => {
