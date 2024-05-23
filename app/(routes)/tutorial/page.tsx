@@ -20,25 +20,29 @@ export default function TutorialPage() {
         </label>
       </div>
 
-      <div className="flex-grow font-semibold flex flex-col gap-5 text-center justify-center mt-5 max-w-sm lg:max-w-screen-lg xl:max-w-sm">
-        <h1>How To Play</h1>
+      <div className="flex-grow font-semibold leading-[24px] flex flex-col gap-5 text-center justify-center mt-5 max-w-sm">
+        <h1 className="font-bold text-4xl xl:text-5xl">How To Play</h1>
         <p>
           Collect as many sparks{" "}
           <img src="assets/Spark.svg" className="inline w-6 h-6" /> as you can
           before the timer runs out.{" "}
         </p>
         <div className="-my-3">
-          <img src="assets/TutorialSnake.png" className="inline w-48 lg:w-52" />
+          <img src="assets/TutorialSnake.png" className="inline w-96" />
         </div>
         <p>
           Got a unique code? Get at least {MIN_SPARKS} sparks then enter your
           code and details to go in the draw.
         </p>
+        <p>
+          To begin the game tap one of the arrow keys at the bottom of the
+          screen.
+        </p>
         <div className="scale-75 flex flex-row justify-center items-center -my-8">
           <ArrowKeys />
         </div>
         <p>
-          Tap the arrows to move around the board. Don’t hit the edges and don’t
+          Use the arrows to move around the board. Don’t hit the edges and don’t
           hit your tail.
         </p>
         <p>Good luck!</p>
