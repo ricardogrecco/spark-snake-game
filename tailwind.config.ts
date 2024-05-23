@@ -43,7 +43,7 @@ const config: Config = {
       boxShadow: {
         neon: "0 0 7px #20FECB, 0 0 7px #20FECB, 0 0 7px #20FECB, 0 0 7px #20FECB",
         neonpink:
-          "0 0 7px #FB26FF, 0 0 7px #FB26FF, 0 0 7px #FB26FF, 0 0 7px #FB26FF",
+          "0 0 7px #EC76FF, 0 0 7px #EC76FF, 0 0 7px #EC76FF, 0 0 10px #EC76FF",
       },
       ringColor: {
         neon: "#20FECB",
