@@ -17,11 +17,11 @@ const config: Config = {
         "key-glow": {
           "0%, 100%": {
             boxShadow:
-              "0 0 0.4rem #09DAAA, 0 0 0.4rem #09DAAA, 0 0 0.4rem #09DAAA, inset 0 0 0.4rem #09DAAA",
+              "0 0 0.4rem #FFFFFF, 0 0 0.4rem #FFFFFF, 0 0 0.4rem #FFFFFF, inset 0 0 0.4rem #FFFFFF",
           },
           "50%": {
             boxShadow:
-              "0 0 1rem #09DAAA, 0 0 1rem #09DAAA, 0 0 1rem #09DAAA, inset 0 0 1rem #09DAAA",
+              "0 0 1rem #ffffff, 0 0 1rem #ffffff, 0 0 1rem #ffffff, inset 0 0 1rem #ffffff",
           },
         },
       },
@@ -41,6 +41,8 @@ const config: Config = {
         "200": "2",
       },
       boxShadow: {
+        "white-glow":
+          "0 0 0.4rem #C3A2E8, 0 0 0.4rem #C3A2E8, 0 0 0.4rem #C3A2E8, inset 0 0 0.4rem #C3A2E8",
         neon: "0 0 0.4rem #09DAAA, 0 0 0.4rem #09DAAA, 0 0 0.4rem #09DAAA, inset 0 0 0.4rem #09DAAA",
         neonpink:
           "0 0 1rem #FB26FF, 0 0 1rem #FB26FF, 0 0 1rem #FB26FF, inset 0 0 5rem #FB26FF",
