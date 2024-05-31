@@ -10,5 +10,5 @@ export const BOARD_COLUMNS = 7;
 export const TIMER = 60;
 
 // SNAKE SPEED
-export const SNAKE_SPEED = 400;
+export const SNAKE_SPEED = 300;
 export const SNAKE_SPEED_INCREMENT = 10;
