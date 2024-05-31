@@ -1,9 +1,16 @@
-import ArrowKeys from "@/app/components/partials/ArrowKeys";
+/* eslint-disable @next/next/no-img-element */
+"use client";
+
 import Footer from "@/app/components/partials/Footer";
 import { MIN_SPARKS } from "@/app/utils/constants";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+
+const ArrowKeys = dynamic(() => import("@/app/components/partials/ArrowKeys"), {
+  ssr: false,
+});
 
 export default function TutorialPage() {
   return (
