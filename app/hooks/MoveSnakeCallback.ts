@@ -84,7 +84,7 @@ const useMoveSnakeCallback = () => {
       return newSnake;
     });
   }, [
-    direction.current,
+    direction,
     snake,
     tailLength,
     gameOver,
@@ -96,6 +96,8 @@ const useMoveSnakeCallback = () => {
     setGameOver,
     snakeInterval,
     playState,
+    loading,
+    soundEat,
   ]);
 };
 
