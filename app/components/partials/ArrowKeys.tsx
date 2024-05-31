@@ -16,6 +16,8 @@ export default function ArrowKeys({
   disabled = true,
   playState = false,
 }: ArrowKeysProps) {
+  const isTouchDevice = window.matchMedia("(hover: none)").matches;
+
   const dispatchArrowKey = (key: string) => {
     if (disabled) return;
     const event = new KeyboardEvent("keydown", { key });
@@ -28,8 +30,9 @@ export default function ArrowKeys({
         <div className="w-22 h-full"></div>
         <div className="bg-[#772BCB] w-22 h-full px-2 rounded-t-[10px] mt-2 flex items-center justify-center">
           <button
-            onClick={() => dispatchArrowKey("ArrowUp")}
-            onTouchStart={() => dispatchArrowKey("ArrowUp")}
+            {...(isTouchDevice
+              ? { onTouchStart: () => dispatchArrowKey("ArrowUp") }
+              : { onClick: () => dispatchArrowKey("ArrowUp") })}
             className={`bg-[#5A12AA] btn w-22 h-3 items-center flex justify-center rounded-[5.36px] border-[#FFFFFF] hover:border-[#FFFFFF] border-[1px] shadow-white-glow relative z-10 ${
               !playState && "animate-key-glow"
             }`}
@@ -40,8 +43,9 @@ export default function ArrowKeys({
         <div className="w-22 h-full"></div>
         <div className="bg-[#772BCB] w-22 h-full pl-2 py-2 rounded-l-[10px] ml-2 flex items-center justify-center">
           <button
-            onClick={() => dispatchArrowKey("ArrowLeft")}
-            onTouchStart={() => dispatchArrowKey("ArrowLeft")}
+            {...(isTouchDevice
+              ? { onTouchStart: () => dispatchArrowKey("ArrowLeft") }
+              : { onClick: () => dispatchArrowKey("ArrowLeft") })}
             className={`bg-[#5A12AA] btn w-22 h-3 items-center flex justify-center rounded-[5.36px] border-[#FFFFFF] hover:border-[#FFFFFF] border-[1px] shadow-white-glow relative ${
               !playState && "animate-key-glow"
             }`}
@@ -51,8 +55,9 @@ export default function ArrowKeys({
         </div>
         <div className="bg-[#772BCB] w-22 h-full p-2 flex items-center justify-center">
           <button
-            onClick={() => dispatchArrowKey("ArrowDown")}
-            onTouchStart={() => dispatchArrowKey("ArrowDown")}
+            {...(isTouchDevice
+              ? { onTouchStart: () => dispatchArrowKey("ArrowDown") }
+              : { onClick: () => dispatchArrowKey("ArrowDown") })}
             className={`bg-[#5A12AA] btn w-22 h-3 items-center flex justify-center rounded-[5.36px] border-[#FFFFFF] hover:border-[#FFFFFF] border-[1px] shadow-white-glow relative z-10 ${
               !playState && "animate-key-glow"
             }`}
@@ -62,8 +67,9 @@ export default function ArrowKeys({
         </div>
         <div className="bg-[#772BCB] w-22 h-full pr-2 py-2 rounded-r-[10px] mr-2 flex items-center justify-center">
           <button
-            onClick={() => dispatchArrowKey("ArrowRight")}
-            onTouchStart={() => dispatchArrowKey("ArrowRight")}
+            {...(isTouchDevice
+              ? { onTouchStart: () => dispatchArrowKey("ArrowRight") }
+              : { onClick: () => dispatchArrowKey("ArrowRight") })}
             className={`bg-[#5A12AA] btn w-22 h-3 items-center flex justify-center rounded-[5.36px] border-[#FFFFFF] hover:border-[#FFFFFF] border-[1px] shadow-white-glow relative ${
               !playState && "animate-key-glow"
             }`}
