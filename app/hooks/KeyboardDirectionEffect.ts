@@ -15,57 +15,49 @@ export const useKeyboardDirectionEffect = () => {
     setPlayState,
   } = useContext(GameContext);
 
-  const isMoving = useRef(false);
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (gameOver) return;
+
+    if (!playState && !loading) {
+      setPlayState(true);
+    }
+
+    switch (event.key) {
+      case "ArrowUp":
+        if (snake[0].direction === "NONE" || snake[0].direction !== "DOWN") {
+          direction.current = "UP";
+          snake[0].direction !== "UP" && soundMove();
+        }
+        break;
+      case "ArrowRight":
+        if (snake[0].direction === "NONE" || snake[0].direction !== "LEFT") {
+          direction.current = "RIGHT";
+          snake[0].direction !== "RIGHT" && soundMove();
+        }
+        break;
+      case "ArrowDown":
+        if (snake[0].direction === "NONE" || snake[0].direction !== "UP") {
+          direction.current = "DOWN";
+          snake[0].direction !== "DOWN" && soundMove();
+        }
+        break;
+      case "ArrowLeft":
+        if (snake[0].direction === "NONE" || snake[0].direction !== "RIGHT") {
+          direction.current = "LEFT";
+          snake[0].direction !== "LEFT" && soundMove();
+        }
+        break;
+      default:
+        return;
+    }
+  };
 
   useEffect(() => {
     if (loading) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (gameOver || isMoving.current) return;
-
-      switch (event.key) {
-        case "ArrowUp":
-          if (snake[0].direction === "NONE" || snake[0].direction !== "DOWN") {
-            direction.current = "UP";
-            snake[0].direction !== "UP" && soundMove();
-          }
-          break;
-        case "ArrowRight":
-          if (snake[0].direction === "NONE" || snake[0].direction !== "LEFT") {
-            direction.current = "RIGHT";
-            snake[0].direction !== "RIGHT" && soundMove();
-          }
-          break;
-        case "ArrowDown":
-          if (snake[0].direction === "NONE" || snake[0].direction !== "UP") {
-            direction.current = "DOWN";
-            snake[0].direction !== "DOWN" && soundMove();
-          }
-          break;
-        case "ArrowLeft":
-          if (snake[0].direction === "NONE" || snake[0].direction !== "RIGHT") {
-            direction.current = "LEFT";
-            snake[0].direction !== "LEFT" && soundMove();
-          }
-          break;
-        default:
-          return;
-      }
-
-      isMoving.current = true;
-
-      if (!playState && !loading) {
-        setPlayState(true);
-      }
-
-      setTimeout(() => {
-        isMoving.current = false;
-      }, (SNAKE_SPEED - Math.sqrt(tailLength) * SNAKE_SPEED_INCREMENT) * 0.75);
-    };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [snake, direction.current, gameOver, loading, playState, setPlayState]);
+  }, [snake, direction, gameOver, loading, playState, setPlayState]);
 };
