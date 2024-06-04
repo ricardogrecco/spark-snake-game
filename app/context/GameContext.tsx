@@ -139,13 +139,13 @@ export default function GameProvider({
   // SOUNDS
   const [muteSounds, setMuteSounds] = useState<boolean>(false);
   const [soundEat] = useSound("/sounds/Eat.wav", {
-    soundEnabled: !muteSounds,
+    volume: !muteSounds ? 1 : 0,
   });
   const [soundMove] = useSound("/sounds/Move.wav", {
-    soundEnabled: !muteSounds,
+    volume: !muteSounds ? 1 : 0,
   });
   const [soundGameOver] = useSound("/sounds/Die.wav", {
-    soundEnabled: !muteSounds,
+    volume: !muteSounds ? 1 : 0,
   });
 
   useEffect(() => {
