@@ -155,7 +155,7 @@ export default function GameProvider({
     "/sounds/bg-music.mp3",
     {
       interrupt: true,
-      volume: !muteSounds ? 0.5 : 0,
+      volume: !muteSounds ? 0.3 : 0,
     }
   );
 
