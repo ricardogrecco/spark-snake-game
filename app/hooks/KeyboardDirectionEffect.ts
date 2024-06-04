@@ -8,7 +8,6 @@ export const useKeyboardDirectionEffect = () => {
     snake,
     direction,
     gameOver,
-    tailLength,
     soundMove,
     loading,
     playState,
@@ -17,10 +16,6 @@ export const useKeyboardDirectionEffect = () => {
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (gameOver) return;
-
-    if (!playState && !loading) {
-      setPlayState(true);
-    }
 
     switch (event.key) {
       case "ArrowUp":
@@ -49,6 +44,10 @@ export const useKeyboardDirectionEffect = () => {
         break;
       default:
         return;
+    }
+
+    if (!playState && !loading) {
+      setPlayState(true);
     }
   };
 
