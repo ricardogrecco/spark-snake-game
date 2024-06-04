@@ -44,6 +44,8 @@ type GameContextType = {
   soundEat: () => void;
   soundMove: () => void;
   soundGameOver: () => void;
+  soundBGMusic: () => void;
+  stopBGMusic: () => void;
   // Loading
   loading: boolean;
   // Play State
@@ -82,6 +84,8 @@ export const GameContext = createContext<GameContextType>({
   soundEat: () => {},
   soundMove: () => {},
   soundGameOver: () => {},
+  soundBGMusic: () => {},
+  stopBGMusic: () => {},
   // Loading
   loading: false,
   // Play State
@@ -147,6 +151,13 @@ export default function GameProvider({
   const [soundGameOver] = useSound("/sounds/Die.wav", {
     volume: !muteSounds ? 1 : 0,
   });
+  const [soundBGMusic, { stop: stopBGMusic }] = useSound(
+    "/sounds/bg-music.mp3",
+    {
+      interrupt: true,
+      volume: !muteSounds ? 0.5 : 0,
+    }
+  );
 
   useEffect(() => {
     if (document.readyState === "complete") {
@@ -168,8 +179,11 @@ export default function GameProvider({
       if (snakeInterval.current) clearInterval(snakeInterval.current);
       setPlayState(false);
       direction.current = "NONE";
+      stopBGMusic();
       soundGameOver();
     } else {
+      playState && !gameOver && soundBGMusic();
+
       if (snakeInterval.current) clearInterval(snakeInterval.current);
 
       setSnake([
@@ -241,6 +255,8 @@ export default function GameProvider({
       soundEat,
       soundMove,
       soundGameOver,
+      soundBGMusic,
+      stopBGMusic,
       // Loading
       loading,
       // Play State
@@ -269,6 +285,8 @@ export default function GameProvider({
       soundEat,
       soundMove,
       soundGameOver,
+      soundBGMusic,
+      stopBGMusic,
       loading,
       playState,
       setPlayState,
