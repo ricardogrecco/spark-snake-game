@@ -9,7 +9,7 @@ const MainGame = dynamic(() => import("./game"), {
 
 export default function GamePage() {
   return (
-    <div className="flex items-center justify-center bg-[#290057] overflow-hidden">
+    <div className="flex items-center justify-center overflow-hidden">
       <MobileLayout>
         <MainGame />
       </MobileLayout>
