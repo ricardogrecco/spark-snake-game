@@ -14,7 +14,7 @@ const ArrowKeys = dynamic(() => import("@/app/components/partials/ArrowKeys"), {
 
 export default function TutorialPage() {
   return (
-    <main className="min-h-screen w-full flex flex-col items-center p-10 nest-hub:tutorial-main">
+    <main className="min-h-screen w-full flex flex-col items-center p-8 nest-hub:tutorial-main">
       <div className="flex flex-row justify-between items-center w-full nest-hub:tutorial">
         <Link href="/" className="btn btn-ghost drawer-button -m-5">
           <MdOutlineKeyboardArrowLeft className="w-8 h-8" />
@@ -28,14 +28,18 @@ export default function TutorialPage() {
       </div>
 
       <div className="flex-grow font-semibold leading-[24px] flex flex-col gap-5 text-center justify-center mt-5 max-w-sm">
-        <h1 className="font-bold text-4xl xl:text-5xl">How To Play</h1>
+        <h1 className="font-bold text-3xl xl:text-4xl">How To Play</h1>
         <p>
           Collect as many sparks{" "}
-          <img src="assets/Spark.svg" className="inline w-6 h-6" /> as you can
-          before the timer runs out.{" "}
+          <img src="assets/Spark.svg" className="inline w-6 h-6" alt="Spark" />{" "}
+          as you can before the timer runs out.{" "}
         </p>
         <div className="-my-3">
-          <img src="assets/TutorialSnake.png" className="inline w-96" />
+          <img
+            src="assets/TutorialSnake2.png"
+            className="inline w-96"
+            alt="Tutorial Snake"
+          />
         </div>
         <p>
           Got a unique code? Get at least {MIN_SPARKS} sparks then enter your
@@ -53,10 +57,10 @@ export default function TutorialPage() {
           hit your tail.
         </p>
         <p>Good luck!</p>
-        <div className="-mb-5 lg:-mb-0">
+        <div className="-mb-2">
           <Link
             href="/game"
-            className="btn btn-lg btn-primary max-w-lg w-full text-lg outline-none text-[#fff]"
+            className="btn btn-md md:btn-lg btn-secondary max-w-lg w-full text-lg outline-none text-[#fff]"
           >
             Play now
           </Link>
