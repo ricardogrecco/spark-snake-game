@@ -25,7 +25,7 @@ export default function Home() {
               </a>
               <img
                 src="assets/SparkArcade.png"
-                className="w-56 md:w-full self-center"
+                className="w-72 md:w-full self-center"
                 alt="Spark Arcade"
               />
               <h1>Welcome To Spark Arcade!</h1>
