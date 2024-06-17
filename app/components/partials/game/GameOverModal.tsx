@@ -2,6 +2,7 @@
 
 import { GameContext } from "@/app/context/GameContext";
 import { MIN_SPARKS } from "@/app/utils/constants";
+import Link from "next/link";
 import { useContext, useEffect } from "react";
 
 export default function GameOverModal() {
@@ -28,10 +29,23 @@ export default function GameOverModal() {
 
   return (
     <dialog id="game-over-modal" className="modal">
-      <div className="modal-box bg-[#772BCB] max-w-sm flex flex-col items-center justify-evenly gap-10 p-10">
+      <div className="modal-box bg-[#772BCB] max-w-sm flex flex-col items-center justify-evenly gap-8 p-10">
         <h2 className="text-4xl font-bold">Your Score</h2>
-        <h1 className="text-9xl font-bold ">{score}</h1>
+        <h1 className="text-9xl font-bold">{score}</h1>
         <div className="w-full flex flex-col items-center gap-3 text-[#fff]">
+          {score < MIN_SPARKS && (
+            <p className="text-center text-xl mb-5 font-medium">
+              Collect a minimum of {MIN_SPARKS} points to proceed.
+            </p>
+          )}
+          {score >= MIN_SPARKS && (
+            <>
+              <h1 className="font-bold text-xl">Congratulations!</h1>
+              <p className="text-center text-xl mb-5 font-medium">
+                You have won the change to unlock a prize.
+              </p>
+            </>
+          )}
           {score >= MIN_SPARKS && (
             <a
               className="btn btn-lg btn-secondary text-2xl w-full outline-none"
@@ -40,13 +54,10 @@ export default function GameOverModal() {
               Submit
             </a>
           )}
-          {score < MIN_SPARKS && (
-            <p className="text-center text-xl mb-5 font-medium">
-              Collect a minimum of {MIN_SPARKS} points to proceed.
-            </p>
-          )}
           <button
-            className="btn btn-lg btn-info text-2xl w-full text-primary outline-none"
+            className={`btn btn-lg text-2xl w-full outline-none ${
+              score > MIN_SPARKS ? "btn-info text-primary" : "btn-secondary"
+            }`}
             onClick={() => {
               handleModalClose();
               setGameOver(false);
@@ -54,6 +65,14 @@ export default function GameOverModal() {
           >
             {score > MIN_SPARKS ? "Play again" : "Try again"}
           </button>
+          {score < MIN_SPARKS && (
+            <Link
+              href="/tutorial"
+              className="btn btn-lg text-2xl w-full outline-none btn-info text-primary"
+            >
+              How to Play
+            </Link>
+          )}
         </div>
       </div>
     </dialog>
