@@ -14,7 +14,7 @@ const ArrowKeys = dynamic(() => import("@/app/components/partials/ArrowKeys"), {
 
 export default function TutorialPage() {
   return (
-    <main className="bg-gradient-to-br from-[#690FA6] to-[#A60E7E] min-h-screen w-full flex flex-col items-center p-10 nest-hub:tutorial-main">
+    <main className="min-h-screen w-full flex flex-col items-center p-10 nest-hub:tutorial-main">
       <div className="flex flex-row justify-between items-center w-full nest-hub:tutorial">
         <Link href="/" className="btn btn-ghost drawer-button -m-5">
           <MdOutlineKeyboardArrowLeft className="w-8 h-8" />

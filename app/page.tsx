@@ -7,9 +7,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 export default function Home() {
   return (
     <Drawer>
-      <div className="flex flex-col items-center justify-center bg-base-300">
+      <div className="flex flex-col items-center justify-center">
         <MobileLayout>
-          <main className="bg-gradient-to-br from-[#690FA6] to-[#A60E7E] min-h-screen w-full flex flex-col items-center p-10">
+          <main className=" min-h-screen w-full flex flex-col items-center p-10">
             <label
               htmlFor="side-drawer"
               className="btn btn-ghost drawer-button self-end fixed -m-5"

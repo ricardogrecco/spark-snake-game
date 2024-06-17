@@ -36,7 +36,7 @@ export default function MainGame() {
   useSnakeIntervalEffect(moveSnake);
 
   return (
-    <div className="bg-gradient-to-br from-[#690FA6] to-[#A60E7E] h-screen flex flex-col items-center justify-center gap-5 p-10 xl:p-16 ">
+    <div className="h-screen flex flex-col items-center justify-center gap-5 p-10 xl:p-16 ">
       <section className="scale-90 sm:scale-120 lg:scale-100 nest-hub:board">
         {/* Score & Timer & Volume */}
         <div className="flex flex-row justify-between items-center w-full scale-110 mb-10 lg:mb-28  lg:scale-150 ">
