@@ -47,12 +47,12 @@ export default function GameOverModal() {
             </>
           )}
           {score >= MIN_SPARKS && (
-            <a
+            <Link
               className="btn btn-lg btn-secondary text-2xl w-full outline-none"
-              href="#"
+              href="https://www.spark.co.nz/forms/snake-game"
             >
               Submit
-            </a>
+            </Link>
           )}
           <button
             className={`btn btn-lg text-2xl w-full outline-none ${
