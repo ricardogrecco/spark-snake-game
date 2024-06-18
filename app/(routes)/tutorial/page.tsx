@@ -42,8 +42,8 @@ export default function TutorialPage() {
           />
         </div>
         <p>
-          Got a unique code? Get at least {MIN_SPARKS} sparks then enter your
-          code and details to go in the draw.
+          Got a unique code? Get at least {MIN_SPARKS} Sparks for your chance to
+          get a scratch card to unlock your prize.
         </p>
         <p>
           To begin the game tap one of the arrow keys at the bottom of the
@@ -53,8 +53,8 @@ export default function TutorialPage() {
           <ArrowKeys />
         </div>
         <p>
-          Use the arrows to move around the board. Don’t hit the edges and don’t
-          hit your tail.
+          Use the arrows to move around the board. Don&apos;t hit the edges and
+          don&apos;t hit your tail.
         </p>
         <p>Good luck!</p>
         <div className="-mb-2">
