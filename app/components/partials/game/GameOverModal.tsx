@@ -42,7 +42,7 @@ export default function GameOverModal() {
             <>
               <h1 className="font-bold text-xl">Congratulations!</h1>
               <p className="text-center text-xl mb-5 font-medium">
-                You have won the change to unlock a prize.
+                You have won the chance to unlock a prize.
               </p>
             </>
           )}
