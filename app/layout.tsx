@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     "Dive into the exciting world of Spark Arcade and play your way to winning Spark Gift Cards.",
   applicationName: "Spark Arcade",
   keywords: ["Spark", "Arcade", "Games", "Rewards", "Spark NZ"],
+  metadataBase: new URL("https://www.sparkarcade.co.nz/"),
 };
 
 export default function RootLayout({
