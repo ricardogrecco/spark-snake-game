@@ -70,7 +70,7 @@ export default function GameOverModal() {
               href="/tutorial"
               className="btn btn-lg text-2xl w-full outline-none btn-info text-primary"
             >
-              How to Play
+              How to play
             </Link>
           )}
         </div>
