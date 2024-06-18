@@ -55,7 +55,7 @@ export default function GameOverModal() {
             </Link>
           )}
           <button
-            className={`btn btn-lg text-2xl w-full outline-none ${
+            className={`btn btn-md md:btn-lg text-2xl w-full outline-none ${
               score > MIN_SPARKS ? "btn-info text-primary" : "btn-secondary"
             }`}
             onClick={() => {
@@ -68,7 +68,7 @@ export default function GameOverModal() {
           {score < MIN_SPARKS && (
             <Link
               href="/tutorial"
-              className="btn btn-lg text-2xl w-full outline-none btn-info text-primary"
+              className="btn btn-md md:btn-lg text-2xl w-full outline-none btn-info text-primary"
             >
               How to play
             </Link>
