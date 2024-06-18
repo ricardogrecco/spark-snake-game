@@ -30,8 +30,8 @@ export default function Home() {
               />
               <h1>Welcome To Spark Arcade!</h1>
               <p>
-                Who doesn&apos;t love a great arcade game? Now, you have the
-                chance to combine fun with rewards!
+                Who doesn&apos;t love a great arcade game? <br /> Now, you have
+                the chance to combine fun with rewards!
               </p>
               <p>
                 Dive into the exciting world of Spark Arcade and play your way
@@ -50,7 +50,7 @@ export default function Home() {
                   href="/tutorial"
                   className="btn btn-md md:btn-lg btn-info max-w-lg w-full text-primary outline-none text-base"
                 >
-                  How to Play
+                  How to play
                 </Link>
               </div>
               <Footer />
