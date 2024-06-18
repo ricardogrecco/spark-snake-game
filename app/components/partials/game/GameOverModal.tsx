@@ -56,14 +56,14 @@ export default function GameOverModal() {
           )}
           <button
             className={`btn btn-md md:btn-lg text-base w-full outline-none ${
-              score > MIN_SPARKS ? "btn-info text-primary" : "btn-secondary"
+              score >= MIN_SPARKS ? "btn-info text-primary" : "btn-secondary"
             }`}
             onClick={() => {
               handleModalClose();
               setGameOver(false);
             }}
           >
-            {score > MIN_SPARKS ? "Play again" : "Try again"}
+            {score >= MIN_SPARKS ? "Play again" : "Try again"}
           </button>
           {score < MIN_SPARKS && (
             <Link
