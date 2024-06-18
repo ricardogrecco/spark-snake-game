@@ -3,7 +3,7 @@ import Drawer from "@/app/components/partials/Drawer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How To Play - Spark Chaser - Spark NZ",
+  title: "How To Play - Spark Arcade - Spark NZ",
 };
 
 export default function TutorialPageLayout({

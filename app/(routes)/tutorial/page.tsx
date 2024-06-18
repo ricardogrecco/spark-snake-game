@@ -31,7 +31,11 @@ export default function TutorialPage() {
         <h1 className="font-bold text-3xl xl:text-4xl">How To Play</h1>
         <p>
           Collect as many sparks{" "}
-          <img src="assets/Spark.svg" className="inline w-6 h-6" alt="Spark" />{" "}
+          <img
+            src="assets/Spark.svg"
+            className="inline w-6 h-6"
+            alt="Spark icon"
+          />{" "}
           as you can before the timer runs out.{" "}
         </p>
         <div className="-my-3">
