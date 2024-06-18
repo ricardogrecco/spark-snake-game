@@ -48,7 +48,7 @@ export default function GameOverModal() {
           )}
           {score >= MIN_SPARKS && (
             <Link
-              className="btn btn-lg btn-secondary text-base w-full outline-none"
+              className="btn btn-md md:btn-lg btn-secondary text-base w-full outline-none"
               href="https://www.spark.co.nz/forms/snake-game"
             >
               Submit
