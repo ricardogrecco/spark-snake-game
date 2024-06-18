@@ -48,14 +48,14 @@ export default function GameOverModal() {
           )}
           {score >= MIN_SPARKS && (
             <Link
-              className="btn btn-lg btn-secondary text-2xl w-full outline-none"
+              className="btn btn-lg btn-secondary text-base w-full outline-none"
               href="https://www.spark.co.nz/forms/snake-game"
             >
               Submit
             </Link>
           )}
           <button
-            className={`btn btn-md md:btn-lg text-2xl w-full outline-none ${
+            className={`btn btn-md md:btn-lg text-base w-full outline-none ${
               score > MIN_SPARKS ? "btn-info text-primary" : "btn-secondary"
             }`}
             onClick={() => {
@@ -68,7 +68,7 @@ export default function GameOverModal() {
           {score < MIN_SPARKS && (
             <Link
               href="/tutorial"
-              className="btn btn-md md:btn-lg text-2xl w-full outline-none btn-info text-primary"
+              className="btn btn-md md:btn-lg text-base w-full outline-none btn-info text-primary"
             >
               How to play
             </Link>
