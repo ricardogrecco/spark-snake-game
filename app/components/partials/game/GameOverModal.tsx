@@ -20,10 +20,20 @@ export default function GameOverModal() {
       const modal = document.getElementById(
         "game-over-modal"
       ) as HTMLDialogElement;
+      const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+          event.preventDefault();
+        }
+      };
 
       setTimeout(() => {
         modal.showModal();
+        document.addEventListener("keydown", handleKeyDown);
       }, 2000);
+
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+      };
     }
   }, [gameOver]);
 
