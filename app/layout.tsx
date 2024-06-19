@@ -1,16 +1,30 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ComingSoon from "./components/pages/ComingSoon";
 
-const baseUrl =
-  process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ||
-  "https://www.sparkarcade.co.nz/";
+function isProductionEnvironment() {
+  const env = process.env;
+  return (
+    !["development", "preview", "test"].includes(env.VERCEL_ENV as string) &&
+    !["development", "preview", "test"].includes(
+      env.NEXT_PUBLIC_VERCEL_ENV as string
+    ) &&
+    env.NODE_ENV !== "development" &&
+    env.NODE_ENV !== "test"
+  );
+}
 
 export const metadata: Metadata = {
-  title: "Spark Arcade - Spark NZ",
-  description:
-    "Dive into the exciting world of Spark Arcade and play your way to winning Spark Gift Cards.",
-  applicationName: "Spark Arcade",
-  keywords: ["Spark", "Arcade", "Games", "Rewards", "Spark NZ"],
+  title: isProductionEnvironment()
+    ? "Coming Soon by Spark NZ"
+    : "Spark Arcade - Spark NZ",
+  description: isProductionEnvironment()
+    ? ""
+    : "Dive into the exciting world of Spark Arcade and play your way to winning Spark Gift Cards.",
+  applicationName: isProductionEnvironment() ? "" : "Spark Arcade",
+  keywords: isProductionEnvironment()
+    ? []
+    : ["Spark", "Arcade", "Games", "Rewards", "Spark NZ"],
   // metadataBase: new URL(baseUrl),
 };
 
@@ -21,7 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="maintheme">
-      <body className="text-[#fff]">{children}</body>
+      <body className="text-[#fff]">
+        {isProductionEnvironment() ? <ComingSoon /> : children}
+      </body>
     </html>
   );
 }
