@@ -5,20 +5,8 @@ import Footer from "./components/partials/Footer";
 import Drawer from "./components/partials/Drawer";
 import { GiHamburgerMenu } from "react-icons/gi";
 import SparkLogo from "../public/assets/logo-spark2.svg";
-import ComingSoon from "./components/pages/ComingSoon";
 
 export default function Home() {
-  if (
-    process.env.VERCEL_ENV !== "development" &&
-    process.env.VERCEL_ENV !== "preview" &&
-    process.env.NEXT_PUBLIC_VERCEL_ENV !== "development" &&
-    process.env.NEXT_PUBLIC_VERCEL_ENV !== "preview" &&
-    process.env.NODE_ENV !== "development" &&
-    process.env.NODE_ENV !== "test"
-  ) {
-    return <ComingSoon />;
-  }
-
   return (
     <Drawer>
       <div className="flex flex-col items-center justify-center">
