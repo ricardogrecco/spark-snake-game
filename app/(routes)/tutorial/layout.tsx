@@ -2,22 +2,9 @@ import MobileLayout from "@/app/components/layout/MobileLayout";
 import Drawer from "@/app/components/partials/Drawer";
 import { Metadata } from "next";
 
-function isProductionEnvironment() {
-  const env = process.env;
-  return (
-    !["development", "preview", "test"].includes(env.VERCEL_ENV as string) ||
-    !["development", "preview", "test"].includes(
-      env.NEXT_PUBLIC_VERCEL_ENV as string
-    ) ||
-    env.NODE_ENV !== "development"
-  );
-}
-
-export const metadata: Metadata = isProductionEnvironment()
-  ? {}
-  : {
-      title: "How To Play - Spark Arcade - Spark NZ",
-    };
+export const metadata: Metadata = {
+  title: "How To Play - Spark Arcade - Spark NZ",
+};
 
 export default function TutorialPageLayout({
   children,
