@@ -6,12 +6,14 @@ import { Metadata } from "next";
 function isProductionEnvironment() {
   const env = process.env;
   return (
-    !["development", "preview", "test"].includes(env.VERCEL_ENV as string) &&
-    !["development", "preview", "test"].includes(
-      env.NEXT_PUBLIC_VERCEL_ENV as string
-    ) &&
-    env.NODE_ENV !== "development" &&
-    env.NODE_ENV !== "test"
+    // !["development", "preview", "test"].includes(env.VERCEL_ENV as string) &&
+    // !["development", "preview", "test"].includes(
+    //   env.NEXT_PUBLIC_VERCEL_ENV as string
+    // ) &&
+    // env.NODE_ENV === "production" &&
+    env.NEXT_PUBLIC_VERCEL_ENV === "production" &&
+    env.VERCEL_ENV === "production" &&
+    env.NODE_ENV === "production"
   );
 }
 
