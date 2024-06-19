@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   keywords: isProductionEnvironment()
     ? []
     : ["Spark", "Arcade", "Games", "Rewards", "Spark NZ"],
-  // metadataBase: new URL(baseUrl),
+  metadataBase: new URL("https://www.sparkarcade.co.nz/"),
 };
 
 export default function RootLayout({
