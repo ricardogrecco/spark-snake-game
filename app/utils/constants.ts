@@ -1,6 +1,9 @@
 // MINIMUM SPARKS REQUIRED TO GET A CODE
 export const MIN_SPARKS = 5;
 
+// NUMBER OF SPARK GIFT CARDS;
+export const SPARK_GIFT_CARDS = 250;
+
 // BOARD_SIZE
 export const BOARD_SIZE = 15; // For both X & Y
 export const BOARD_ROWS = 8;
