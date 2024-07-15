@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: "AvenirNext LT Pro";
-  src: url("../public/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"),
+  src:
+    url("../public/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"),
     url("../public/fonts/AvenirNextLTPro-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
@@ -12,7 +13,8 @@
 
 @font-face {
   font-family: "AvenirNext LT Pro";
-  src: url("../public/fonts/AvenirNextLTPro-Medium.woff2") format("woff2"),
+  src:
+    url("../public/fonts/AvenirNextLTPro-Medium.woff2") format("woff2"),
     url("../public/fonts/AvenirNextLTPro-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
@@ -20,7 +22,8 @@
 
 @font-face {
   font-family: "AvenirNext LT Pro";
-  src: url("../public/fonts/AvenirNextLTPro-Demi.woff2") format("woff2"),
+  src:
+    url("../public/fonts/AvenirNextLTPro-Demi.woff2") format("woff2"),
     url("../public/fonts/AvenirNextLTPro-Demi.woff") format("woff");
   font-weight: 600;
   font-style: normal;
@@ -28,7 +31,8 @@
 
 @font-face {
   font-family: "AvenirNext LT Pro";
-  src: url("../public/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"),
+  src:
+    url("../public/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"),
     url("../public/fonts/AvenirNextLTPro-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
@@ -81,10 +85,10 @@ body {
   font-family: "AvenirNext LT Pro", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background-image: url("../public/assets/bg/MainBG-Desktop.webp");
+  /* background-image: url("../public/assets/bg/MainBG-Desktop.webp");
   background-size: cover;
   background-position: center top;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 body::before {
@@ -105,12 +109,12 @@ p {
 }
 
 h1 {
-  @apply font-[700] text-lg md:text-2xl;
+  @apply text-lg font-[700] md:text-2xl;
 }
 
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
-  body,
+  /* body, */
   body::before {
     background-image: url("../public/assets/bg/MainBG.webp"); /* Mobile background */
   }
@@ -118,13 +122,13 @@ h1 {
 
 @media (width: 1024px) and (height: 600px) {
   .nest-hub\:board {
-    @apply scale-70 -mb-14 translate-y-0 !important;
+    @apply -mb-14 translate-y-0 scale-70 !important;
   }
   .nest-hub\:keys {
-    @apply bottom-0 -mb-[-20px] scale-100 translate-y-0 !important;
+    @apply bottom-0 -mb-[-20px] translate-y-0 scale-100 !important;
   }
   .nest-hub\:tutorial {
-    @apply max-w-screen-sm fixed mt-10;
+    @apply fixed mt-10 max-w-screen-sm;
   }
   .nest-hub\:tutorial-main {
     @apply p-5;
@@ -136,7 +140,7 @@ h1 {
     @apply -mt-52 translate-y-0 !important;
   }
   .nest-hub\:keys {
-    @apply fixed bottom-0 scale-150 -mb-[-45px] translate-y-0 !important;
+    @apply fixed bottom-0 -mb-[-45px] translate-y-0 scale-150 !important;
   }
 }
 
@@ -159,11 +163,19 @@ h1 {
 }
 
 .text-glow {
-  text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 1px #fff, 0 0 15px #fff;
+  text-shadow:
+    0 0 1px #fff,
+    0 0 1px #fff,
+    0 0 1px #fff,
+    0 0 15px #fff;
 }
 
 .text-glow-warning {
-  text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 1px #fff, 0 0 15px #ff9c28;
+  text-shadow:
+    0 0 1px #fff,
+    0 0 1px #fff,
+    0 0 1px #fff,
+    0 0 15px #ff9c28;
 }
 
 .filter-glow {

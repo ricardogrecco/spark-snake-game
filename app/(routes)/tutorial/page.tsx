@@ -2,7 +2,7 @@
 "use client";
 
 import Footer from "@/app/components/partials/Footer";
-import { MIN_SPARKS } from "@/app/utils/constants";
+import { MIN_SPARKS, SPARK_GIFT_CARDS } from "@/app/utils/constants";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -14,26 +14,26 @@ const ArrowKeys = dynamic(() => import("@/app/components/partials/ArrowKeys"), {
 
 export default function TutorialPage() {
   return (
-    <main className="min-h-screen w-full flex flex-col items-center p-8 nest-hub:tutorial-main">
-      <div className="flex flex-row justify-between items-center w-full nest-hub:tutorial">
+    <main className="nest-hub:tutorial-main flex min-h-screen w-full flex-col items-center p-8">
+      <div className="nest-hub:tutorial flex w-full flex-row items-center justify-between">
         <Link href="/" className="btn btn-ghost drawer-button -m-5">
-          <MdOutlineKeyboardArrowLeft className="w-8 h-8" />
+          <MdOutlineKeyboardArrowLeft className="h-8 w-8" />
         </Link>
         <label
           htmlFor="side-drawer"
           className="btn btn-ghost drawer-button -m-5"
         >
-          <GiHamburgerMenu className="w-6 h-6" />
+          <GiHamburgerMenu className="h-6 w-6" />
         </label>
       </div>
 
-      <div className="flex-grow font-semibold leading-[24px] flex flex-col gap-5 text-center justify-center mt-5 max-w-sm">
-        <h1 className="font-bold text-3xl xl:text-4xl">How To Play</h1>
+      <div className="mt-5 flex max-w-sm flex-grow flex-col justify-center gap-5 text-center font-semibold leading-[24px]">
+        <h1 className="text-3xl font-bold xl:text-4xl">How To Play</h1>
         <p>
           Collect as many sparks{" "}
           <img
             src="assets/Spark.svg"
-            className="inline w-6 h-6"
+            className="inline h-6 w-6"
             alt="Spark icon"
           />{" "}
           as you can before the timer runs out.{" "}
@@ -46,14 +46,14 @@ export default function TutorialPage() {
           />
         </div>
         <p>
-          Got a unique code? Get at least {MIN_SPARKS} Sparks for your chance to
-          get a scratch card to unlock your prize.
+          Get at least {MIN_SPARKS} Sparks for your chance to unlock one of{" "}
+          {SPARK_GIFT_CARDS} Spark Gift Cards.
         </p>
         <p>
           To begin the game tap one of the arrow keys at the bottom of the
           screen.
         </p>
-        <div className="scale-75 flex flex-row justify-center items-center -my-8">
+        <div className="-my-8 flex scale-75 flex-row items-center justify-center">
           <ArrowKeys />
         </div>
         <p>
@@ -64,7 +64,7 @@ export default function TutorialPage() {
         <div className="-mb-2">
           <Link
             href="/game"
-            className="btn btn-md md:btn-lg btn-secondary max-w-lg w-full text-lg outline-none text-[#fff]"
+            className="btn btn-secondary btn-md w-full max-w-lg text-lg text-[#fff] outline-none md:btn-lg"
           >
             Play now
           </Link>
