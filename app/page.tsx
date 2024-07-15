@@ -11,44 +11,40 @@ export default function Home() {
     <Drawer>
       <div className="flex flex-col items-center justify-center">
         <MobileLayout>
-          <main className=" min-h-screen w-full flex flex-col items-center p-8">
+          <main className="flex min-h-screen w-full flex-col items-center p-8">
             <label
               htmlFor="side-drawer"
-              className="btn btn-ghost drawer-button self-end fixed -m-5"
+              className="btn btn-ghost drawer-button fixed -m-5 self-end"
             >
-              <GiHamburgerMenu className="w-6 h-6" />
+              <GiHamburgerMenu className="h-6 w-6" />
             </label>
 
-            <div className="text-center font-semibold flex-grow max-w-sm flex flex-col justify-center gap-5">
+            <div className="flex max-w-sm flex-grow flex-col justify-center gap-5 text-center font-semibold">
               <a href="/" className="flex items-center justify-center">
-                <SparkLogo className="w-32 md:w-52 self-center" />
+                <SparkLogo className="w-32 self-center md:w-52" />
               </a>
               <img
                 src="assets/SparkArcade.png"
-                className="w-72 md:w-full self-center"
+                className="w-72 self-center md:w-full"
                 alt="Spark Arcade"
               />
               <h1>Welcome To Spark Arcade!</h1>
+              <p>We are celebrating our 10th anniversary!</p>
               <p>
-                Who doesn&apos;t love a great arcade game? <br /> Now, you have
-                the chance to combine fun with rewards!
+                Join the fun at Spark Arcade for a chance to win a Spark Gift
+                Card worth up to $500 instantly, $25,000 to be won in 10 days.
               </p>
-              <p>
-                Dive into the exciting world of Spark Arcade and play your way
-                to winning Spark Gift Cards. It&apos;s easy, it&apos;s fun, and
-                best of all, you could walk away with fantastic prizes!
-              </p>
-              <p>Give it a try and discover what you can win with Spark!</p>
+              <p>Give it a try and see what you can win!</p>
               <div className="space-y-4">
                 <Link
                   href="/game"
-                  className="btn btn-md md:btn-lg btn-secondary max-w-lg w-full outline-none text-[#fff] text-base"
+                  className="btn btn-secondary btn-md w-full max-w-lg text-base text-[#fff] outline-none md:btn-lg"
                 >
                   Play now
                 </Link>
                 <Link
                   href="/tutorial"
-                  className="btn btn-md md:btn-lg btn-info max-w-lg w-full text-primary outline-none text-base"
+                  className="btn btn-info btn-md w-full max-w-lg text-base text-primary outline-none md:btn-lg"
                 >
                   How to play
                 </Link>
