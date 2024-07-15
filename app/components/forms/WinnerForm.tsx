@@ -21,11 +21,15 @@ export default function WinnerForm() {
 
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const onSubmit = handleSubmit(async (data) => {
+    setError(null);
     setLoading(true);
     if (!executeRecaptcha) {
       console.error("Execute recaptcha not yet available");
+      setLoading(false);
+      setError("Recaptcha verification failed.");
       return;
     }
 
@@ -50,9 +54,11 @@ export default function WinnerForm() {
         reset();
       } else {
         console.error("Recaptcha token verification failed.", response.data);
+        setError("Recaptcha verification failed.");
       }
     } catch (error) {
       console.error(error);
+      setError("Form submission failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -115,6 +121,9 @@ export default function WinnerForm() {
         {loading && <span className="loading loading-spinner"></span>}
         Submit
       </button>
+      {!loading && error && (
+        <p className="text-left font-medium text-warning">{error}</p>
+      )}
     </form>
   );
 }
