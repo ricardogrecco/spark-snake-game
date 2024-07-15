@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { winnerFormSchema } from "@/app/utils/schema";
 import { z } from "zod";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import axios from "axios";
+import { useState } from "react";
 
 type FormData = z.infer<typeof winnerFormSchema>;
 
@@ -11,11 +14,49 @@ export default function WinnerForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormData>({
     resolver: zodResolver(winnerFormSchema),
   });
 
-  const onSubmit = handleSubmit(async (data) => console.log(data));
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = handleSubmit(async (data) => {
+    setLoading(true);
+    if (!executeRecaptcha) {
+      console.error("Execute recaptcha not yet available");
+      return;
+    }
+
+    const recaptchaToken = await executeRecaptcha("submit");
+
+    try {
+      const response = await axios.post(
+        "/api/recaptcha",
+        {
+          recaptchaToken,
+        },
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      if (response.data.success) {
+        console.log("Recaptcha token verified.", response.data);
+        reset();
+      } else {
+        console.error("Recaptcha token verification failed.", response.data);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  });
 
   return (
     <form onSubmit={onSubmit} className="mb-5 space-y-4">
@@ -67,7 +108,11 @@ export default function WinnerForm() {
       {errors.postcode && (
         <p className="text-left font-medium">{errors.postcode.message}</p>
       )}
-      <button className="btn btn-secondary btn-lg w-full text-lg">
+      <button
+        className="btn btn-secondary btn-lg w-full text-lg"
+        disabled={loading}
+      >
+        {loading && <span className="loading loading-spinner"></span>}
         Submit
       </button>
     </form>
