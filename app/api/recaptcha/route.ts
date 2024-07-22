@@ -8,16 +8,6 @@ interface RecaptchaResponseData {
 
 export async function POST(request: Request) {
   try {
-    // TODO: I will come back to this later, may not be needed tbh.
-    // const referer = request.headers.get("Referer");
-
-    // if (!referer || !referer.startsWith("https://www.test.com")) {
-    //   console.error("Request from invalid origin");
-    //   return new Response(JSON.stringify({ error: "Unauthorized" }), {
-    //     status: 401,
-    //   });
-    // }
-
     const body = await request.json();
     const token = body.recaptchaToken;
 
