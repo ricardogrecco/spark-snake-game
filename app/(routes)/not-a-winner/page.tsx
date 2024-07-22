@@ -21,7 +21,7 @@ export default function NotAWinnerPage() {
         <div className="flex flex-grow flex-col items-center justify-center space-y-4">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold lg:text-4xl">Not A Winner</h1>
-            <p className="text-xl font-medium">Try your luck next time!</p>
+            <p className="text-xl font-normal">Try your luck next time!</p>
           </div>
           <Link
             href="/game"
