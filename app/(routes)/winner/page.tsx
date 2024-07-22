@@ -4,11 +4,6 @@ import Footer from "@/app/components/partials/Footer";
 import { GIFT_CARD_VALUE } from "@/app/utils/constants";
 import { GiHamburgerMenu } from "react-icons/gi";
 import SparkLogo from "@/public/assets/logo-spark2.svg";
-import dynamic from "next/dynamic";
-
-const WinnerForm = dynamic(() => import("@/app/components/forms/WinnerForm"), {
-  ssr: false,
-});
 
 export default function WinnerPage() {
   return (
@@ -33,7 +28,42 @@ export default function WinnerPage() {
             we&apos;ll sned it out to you as soon as we can.
           </p>
         </div>
-        <WinnerForm />
+        <form className="mb-5 space-y-4">
+          <input
+            type="text"
+            placeholder="Full Name"
+            className="input input-lg input-bordered w-full bg-white text-primary"
+          />
+          <input
+            type="email"
+            placeholder="Email Address"
+            className="input input-lg input-bordered w-full bg-white text-primary"
+          />
+          <input
+            type="text"
+            placeholder="Phone Number"
+            className="input input-lg input-bordered w-full bg-white text-primary"
+          />
+          <input
+            type="text"
+            placeholder="Address Line 1"
+            className="input input-lg input-bordered w-full bg-white text-primary"
+          />
+          <input
+            type="text"
+            placeholder="City"
+            className="input input-lg input-bordered w-full bg-white text-primary"
+          />
+          <input
+            type="text"
+            placeholder="Postcode"
+            className="input input-lg input-bordered w-full bg-white text-primary"
+          />
+          <button className="btn btn-secondary btn-lg w-full text-lg">
+            Submit
+          </button>
+        </form>
+
         <Footer />
       </div>
     </main>
