@@ -10,7 +10,7 @@ export default function GameOverModal() {
 
   const handleModalClose = () => {
     const modal = document.getElementById(
-      "game-over-modal"
+      "game-over-modal",
     ) as HTMLDialogElement;
     modal.close();
   };
@@ -18,7 +18,7 @@ export default function GameOverModal() {
   useEffect(() => {
     if (gameOver) {
       const modal = document.getElementById(
-        "game-over-modal"
+        "game-over-modal",
       ) as HTMLDialogElement;
       const handleKeyDown = (event: KeyboardEvent) => {
         if (event.key === "Escape") {
@@ -39,33 +39,35 @@ export default function GameOverModal() {
 
   return (
     <dialog id="game-over-modal" className="modal">
-      <div className="modal-box bg-[#772BCB] max-w-sm flex flex-col items-center justify-evenly gap-8 p-10">
+      <div className="modal-box flex max-w-sm flex-col items-center justify-evenly gap-8 bg-[#772BCB] p-10">
         <h2 className="text-4xl font-bold">Your Score</h2>
         <h1 className="text-9xl font-bold">{score}</h1>
-        <div className="w-full flex flex-col items-center gap-3 text-[#fff]">
+        <div className="flex w-full flex-col items-center gap-3 text-[#fff]">
           {score < MIN_SPARKS && (
-            <p className="text-center text-xl mb-5 font-medium">
+            <p className="mb-5 text-center text-xl font-medium">
               Collect a minimum of {MIN_SPARKS} points to proceed.
             </p>
           )}
           {score >= MIN_SPARKS && (
             <>
-              <h1 className="font-bold text-xl">Congratulations!</h1>
-              <p className="text-center text-xl mb-5 font-medium">
-                You have won the chance to unlock a prize.
+              <h1 className="text-xl font-bold">Congratulations!</h1>
+              <p className="mb-5 text-center text-lg font-medium">
+                You have won the chance to go into the draw for a prize.
+                <br />
+                Please submit to provide your details.
               </p>
             </>
           )}
           {score >= MIN_SPARKS && (
             <Link
-              className="btn btn-md md:btn-lg btn-secondary text-base w-full outline-none"
+              className="btn btn-secondary btn-md w-full text-base outline-none md:btn-lg"
               href="https://www.spark.co.nz/forms/snake-game"
             >
               Submit
             </Link>
           )}
           <button
-            className={`btn btn-md md:btn-lg text-base w-full outline-none ${
+            className={`btn btn-md w-full text-base outline-none md:btn-lg ${
               score >= MIN_SPARKS ? "btn-info text-primary" : "btn-secondary"
             }`}
             onClick={() => {
@@ -78,7 +80,7 @@ export default function GameOverModal() {
           {score < MIN_SPARKS && (
             <Link
               href="/tutorial"
-              className="btn btn-md md:btn-lg text-base w-full outline-none btn-info text-primary"
+              className="btn btn-info btn-md w-full text-base text-primary outline-none md:btn-lg"
             >
               How to play
             </Link>
