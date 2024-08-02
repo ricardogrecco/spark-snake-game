@@ -32,7 +32,8 @@ export default function Home() {
               <p>We are celebrating our 10th anniversary!</p>
               <p>
                 Join the fun at Spark Arcade for a chance to win a Spark Gift
-                Card worth up to $500 instantly, $25,000 to be won in 10 days.
+                Card worth up to $1,000. We have 160 prizes totalling $25,000 to
+                be won.
               </p>
               <p>Give it a try and see what you can win!</p>
               <div className="space-y-4">
