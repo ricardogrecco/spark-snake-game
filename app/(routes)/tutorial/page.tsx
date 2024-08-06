@@ -46,19 +46,16 @@ export default function TutorialPage() {
           />
         </div>
         <p>
-          Get at least {MIN_SPARKS} Sparks for your chance to unlock one of{" "}
-          {SPARK_GIFT_CARDS} Spark Gift Cards.
+          Get at least {MIN_SPARKS} Sparks for your chance to unlock one of {SPARK_GIFT_CARDS} Spark Gift Cards.
         </p>
         <p>
-          To begin the game tap one of the arrow keys at the bottom of the
-          screen.
+          To begin the game tap one of the arrow keys at the bottom of the screen.
         </p>
         <div className="-my-8 flex scale-75 flex-row items-center justify-center">
           <ArrowKeys />
         </div>
         <p>
-          Use the arrows to move around the board. Don&apos;t hit the edges and
-          don&apos;t hit your tail.
+          Use the arrows to move around the board. Don&apos;t hit the edges and don&apos;t hit your tail.
         </p>
         <p>Good luck!</p>
         <div className="-mb-2">

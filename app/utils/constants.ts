@@ -2,7 +2,7 @@
 export const MIN_SPARKS = 5;
 
 // NUMBER OF SPARK GIFT CARDS;
-export const SPARK_GIFT_CARDS = 160;
+export const SPARK_GIFT_CARDS = 100;
 
 // GIFT CARD VALUE
 export const GIFT_CARD_VALUE = 500;
