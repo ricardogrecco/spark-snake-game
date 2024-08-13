@@ -2,6 +2,7 @@
 import Link from "next/link";
 import MobileLayout from "./components/layout/MobileLayout";
 import Footer from "./components/partials/Footer";
+import { SPARK_GIFT_CARDS } from "@/app/utils/constants";
 import Drawer from "./components/partials/Drawer";
 import { GiHamburgerMenu } from "react-icons/gi";
 import SparkLogo from "../public/assets/logo-spark2.svg";
@@ -31,9 +32,7 @@ export default function Home() {
               <h1>Welcome To Spark Arcade!</h1>
               <p>We are celebrating our 10th anniversary!</p>
               <p>
-                Join the fun at Spark Arcade for a chance to win a Spark Gift
-                Card worth up to $1,000. We have 160 prizes totalling $25,000 to
-                be won.
+                Join the fun at Spark Arcade for a chance to win a Spark Gift&nbsp;Card worth up to $1,000. We have {SPARK_GIFT_CARDS} prizes totalling $15,000 to be won.
               </p>
               <p>Give it a try and see what you can win!</p>
               <div className="space-y-4">
