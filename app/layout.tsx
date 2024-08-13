@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const baseUrl =
   process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL ||
@@ -16,12 +17,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" data-theme="maintheme">
       <body className="text-[#fff]">{children}</body>
+      <GoogleAnalytics
+        gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID as string}
+      />
     </html>
   );
 }
